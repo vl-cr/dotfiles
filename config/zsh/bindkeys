@@ -1,0 +1,15 @@
+# Similar to Neovim essentials in keymaps.lua
+bindkey -M viins "jj" vi-cmd-mode
+bindkey -M vicmd "U" redo
+bindkey -M vicmd "j" undefined-key
+bindkey -M vicmd "k" undefined-key
+
+
+# Fixes backspace and Ctrl U non working after switching to Insert mode
+# https://github.com/spaceship-prompt/spaceship-prompt/issues/91#issuecomment-327996599
+bindkey "^?" backward-delete-char
+bindkey "^U" kill-whole-line
+
+# Disable Ctrl+D shell exit behavior & Remove Ctrl+D binding from keymap
+setopt IGNORE_EOF
+bindkey -r "^D"

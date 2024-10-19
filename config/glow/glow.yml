@@ -1,0 +1,14 @@
+# Style name or JSON path (default "auto")
+style: "$XDG_CONFIG_HOME/glow/catppuccin-mocha.json"
+
+# Mouse support (TUI-mode only)
+mouse: true
+
+# Use pager to display markdown
+pager: true
+
+# Word-wrap at width
+width: 120
+
+# Show all files, including hidden and ignored.
+all: true

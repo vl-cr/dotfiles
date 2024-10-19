@@ -1,0 +1,12 @@
+autoload -Uz compinit && compinit
+
+# Make completions case-insensitive
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+# Use a select menu for completions
+zstyle ':completion:*' menu select
+
+source <(kubectl completion zsh)
+
+# Run 'is' for an interactive autocomplete session
+# This is not run by default to avoid slower terminal startup time

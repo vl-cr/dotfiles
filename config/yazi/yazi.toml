@@ -1,0 +1,12 @@
+# https://yazi-rs.github.io/docs/configuration/yazi
+[manager]
+ratio = [0, 4, 5]
+sort_by = "natural"
+sort_sensitive = false
+sort_dir_first = true
+sort_translit = true
+show_hidden = false
+show_symlink = true
+
+[preview]
+image_delay = 0

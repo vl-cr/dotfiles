@@ -1,0 +1,12 @@
+version: "3"
+
+run: once # By default, only run deps once
+
+tasks:
+  brew:
+    desc: Install Brew bundle from dotfiles
+    dir: $DOTFILES_DIR
+    cmds:
+      - brew bundle install
+      - brew cleanup
+      - brew doctor

@@ -1,0 +1,24 @@
+# Define Cross-Desktop Group
+# $HOME/Library/Application\ Support is default on macOS
+# (data is in $HOME/.local/share; cache is in $HOME/Library/Caches)
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# Zsh dotfiles dir
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
+# Default editor used by Zellij, Lazygit etc.
+export EDITOR="nvim"
+export VISUAL="$EDITOR"
+
+# Set Homebrew prefix based on OS
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    export HOMEBREW_PREFIX="/opt/homebrew"
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+else
+    echo "(!) Unsupported OS"
+    exit 1
+fi
+
+# Brewfile install without lock (https://github.com/Homebrew/homebrew-bundle?tab=readme-ov-file#versions-and-lockfiles)
+export HOMEBREW_BUNDLE_NO_LOCK=1

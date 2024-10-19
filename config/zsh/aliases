@@ -1,0 +1,27 @@
+alias ls="eza -a --sort=type --ignore-glob='.DS_Store|.localized'"
+alias lst="eza -a --sort=type --git-ignore --ignore-glob='.DS_Store|.localized' --tree --icons --level=2"  # override with --level=3
+alias cat="bat --paging=never"  # Use 'cat' when default non-pager behaviour is wanted
+alias da="dua interactive"
+alias df="duf"
+alias du="dust"
+alias http="xh"
+alias find="fd --hidden --exclude .git"
+alias grep="rg"
+alias ping="gping"
+
+# Git
+alias fdck="docker ps -a --format '{{.Names}}' \
+  | fzf --multi --prompt='Select containers to kill> ' \
+  | xargs docker container kill"
+alias fgbd="git branch | fzf --multi --prompt='Select Git branches to delete> ' | xargs git branch -D"
+
+# Kubernetes
+alias kc="kubectl"
+alias fkc="kubectl config get-contexts -o name | fzf --prompt='Select context> ' | xargs -r kubectl config use-context"
+alias fkn="kubectl get namespaces -o custom-columns=':metadata.name' --no-headers \
+  | fzf --height=15 --prompt='Select namespace> ' \
+  | xargs -r kubectl config set-context --current --namespace"
+
+# Python
+alias python3="python3.12"
+alias python="python3"

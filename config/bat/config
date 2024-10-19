@@ -1,0 +1,12 @@
+--theme="Catppuccin Mocha"
+
+--italic-text=never
+
+--style="default"
+
+# Useful for fzf pipe command
+--color=always
+
+# Map a certain filename pattern to a language.
+# Use ".gitignore"-style highlighting for all ".*ignore" files
+--map-syntax ".*ignore:Git Ignore"
