@@ -1,0 +1,13 @@
+--theme="Catppuccin Mocha"
+
+--italic-text=never
+
+# Disable automatic paging
+--paging=never
+
+# Useful for fzf pipe command
+--color always
+
+# Syntax mappings: map a certain filename pattern to a language.
+#   Example 1: Use ".gitignore"-style highlighting for ".ignore" files
+--map-syntax ".ignore:Git Ignore"

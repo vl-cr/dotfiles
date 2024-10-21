@@ -1,35 +1,14 @@
-### Aliases ###
-alias kc="kubectl"
-alias fkc="kubectl config get-contexts -o name \
-  | fzf --reverse --prompt='Select context> ' \
-  | xargs -r kubectl config use-context"
-alias fkn="kubectl get namespaces -o custom-columns=':metadata.name' --no-headers \
-  | fzf --reverse --height=15 --prompt='Select namespace> ' \
-  | xargs -r kubectl config set-context --current --namespace"
+source $ZDOTDIR/aliases
 
-alias fat="fzf --preview \"bat --theme='Visual Studio Dark+' --style=numbers --color=always {}\" --preview-window=75%:nohidden"
-alias fdck="docker ps -a --format '{{.Names}}' \
-  | fzf --multi --reverse --prompt='Select containers to kill> ' \
-  | xargs docker container kill"
-alias fgbd="git branch | fzf --multi --reverse --prompt='Select Git branches to delete> ' | xargs git branch -D"
-
-alias ls="eza -a --sort=type --ignore-glob='.DS_Store|.localized'"  # + -l --tree --level=2  ## also can add --icons
-alias cat="bat --paging=never --theme='Visual Studio Dark+'"
-alias df="duf"
-alias da="dua"
-alias http="xh"
-alias find="fd"
-alias grep="rg"
-
-alias python3="python3.12"
-
-
-### Zsh ###
+# Zsh
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-(( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES  # To remove underline on path caused by syntax highlighting
+(( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES  # Remove path underline (from syntax highlighting)
 ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_prefix]=none
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'  # Make completions case-insensitive
+autoload -Uz compinit && compinit
+
 bindkey -r '^D'
 
 # Zsh History
@@ -38,18 +17,9 @@ setopt INC_APPEND_HISTORY  # Save zsh to history immediately after running the c
 HISTSIZE=10000
 SAVEHIST=10000
 
-# Make completions case-insensitive
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-autoload -Uz compinit && compinit
-
-# export VISUAL=$HOMEBREW_PREFIX/bin/nvim
-# export EDITOR=$VISUAL
-
-### Evals ###
+# Evals
 source <(fzf --zsh)
 eval "$(zoxide init --cmd cd zsh)"
-
-export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 eval "$(starship init zsh)"
 
 # Automatically enter Zellij on shell startup only on macOS

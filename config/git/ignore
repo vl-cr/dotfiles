@@ -1,1 +1,17 @@
 .DS_Store
+.localized
+.vscode/
+
+.venv/
+
+# Cache
+.mypy_cache/
+.ruff_cache/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+node_modules/
+dist/
+temp/
+tmp_*.*

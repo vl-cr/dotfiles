@@ -1,8 +1,9 @@
 #!/bin/bash
 
-set -euo pipefail  # exit immediately; unset variable = error; pipeline fails return non-zero status
+set -euo pipefail  # Exit immediately; unset variable = error; pipeline fails return non-zero status
+DOTFILES_DIR=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")  # Get the directory of the install script
 
-source ./config/zsh/zshenv
+source "$DOTFILES_DIR"/config/zsh/zshenv
 mkdir -p "$ZDOTDIR"
 
 # 0. Install Homebrew if necessary
@@ -33,17 +34,19 @@ brew bundle install --no-lock
 
 # 2. ZSH
 echo "2. Set up zsh"
-ln -sf "$(pwd)"/config/zsh/zshenv "$HOME"/.zshenv
-ln -sf "$(pwd)"/config/zsh/zshrc "$ZDOTDIR"/.zshrc
+ln -sf "$DOTFILES_DIR"/config/zsh/zshenv "$HOME"/.zshenv
+ln -sf "$DOTFILES_DIR"/config/zsh/zshrc "$ZDOTDIR"/.zshrc
+ln -sf "$DOTFILES_DIR"/config/zsh/aliases "$ZDOTDIR"/aliases
 
 # 3. Other symlinks
 echo "3. Set up other symlinks"
-ln -sf "$(pwd)"/config/git "$XDG_CONFIG_HOME"
-ln -sf "$(pwd)"/config/k9s "$XDG_CONFIG_HOME"
-ln -sf "$(pwd)"/config/nvim "$XDG_CONFIG_HOME"
-ln -sf "$(pwd)"/config/starship "$XDG_CONFIG_HOME"
-ln -sf "$(pwd)"/config/wezterm "$XDG_CONFIG_HOME"
-ln -sf "$(pwd)"/config/zellij "$XDG_CONFIG_HOME"
+ln -sf "$DOTFILES_DIR"/config/bat "$XDG_CONFIG_HOME"
+ln -sf "$DOTFILES_DIR"/config/git "$XDG_CONFIG_HOME"
+ln -sf "$DOTFILES_DIR"/config/k9s "$XDG_CONFIG_HOME"
+ln -sf "$DOTFILES_DIR"/config/nvim "$XDG_CONFIG_HOME"
+ln -sf "$DOTFILES_DIR"/config/starship "$XDG_CONFIG_HOME"
+ln -sf "$DOTFILES_DIR"/config/wezterm "$XDG_CONFIG_HOME"
+ln -sf "$DOTFILES_DIR"/config/zellij "$XDG_CONFIG_HOME"
 
 # 4. Make zsh the default shell on Linux (on macOS it's pre-installed)
 # If change to Brew zsh is needed on macOS: https://rick.cogley.info/post/use-homebrew-zsh-instead-of-the-osx-default

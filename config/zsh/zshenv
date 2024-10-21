@@ -5,3 +5,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export HISTFILE="$ZDOTDIR/.zsh_history"
+
+# https://github.com/junegunn/fzf?tab=readme-ov-file#respecting-gitignore
+export FZF_DEFAULT_COMMAND="fd --type f --strip-cwd-prefix --hidden --follow --exclude .git"
+
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME"/starship/starship.toml

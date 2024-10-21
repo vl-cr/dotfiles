@@ -1,0 +1,29 @@
+alias ls="eza -a --sort=type --git-ignore"  # --icons
+alias lst="eza -a --sort=type --git-ignore --tree"  # --level=2
+alias cat="bat"
+alias df="duf"
+alias da="dua"
+alias http="xh"
+alias find="fd --hidden --exclude .git"
+alias grep="rg"
+
+alias fat="fzf --preview \"bat --style=numbers {}\" --preview-window=75%:nohidden"
+
+# Git
+alias fdck="docker ps -a --format '{{.Names}}' \
+  | fzf --multi --reverse --prompt='Select containers to kill> ' \
+  | xargs docker container kill"
+alias fgbd="git branch | fzf --multi --reverse --prompt='Select Git branches to delete> ' | xargs git branch -D"
+
+# Kubernetes
+alias kc="kubectl"
+alias fkc="kubectl config get-contexts -o name \
+  | fzf --reverse --prompt='Select context> ' \
+  | xargs -r kubectl config use-context"
+alias fkn="kubectl get namespaces -o custom-columns=':metadata.name' --no-headers \
+  | fzf --reverse --height=15 --prompt='Select namespace> ' \
+  | xargs -r kubectl config set-context --current --namespace"
+
+# Python
+alias python3="python3.12"
+
