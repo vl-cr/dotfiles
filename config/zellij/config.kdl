@@ -1,12 +1,15 @@
 theme "catppuccin-mocha"
 pane_frames false
-simplified_ui true
+simplified_ui false
 default_layout "minimal"  // default | minimal
-default_mode "normal"  // normal | locked
+default_mode "normal"     // normal | locked
+on_force_close "detach"     // detach | quit
 hide_session_name false
 session_serialization true
 
+mouse_mode true
 copy_on_select true
+copy_command "pbcopy"
 
 // If you'd lik e to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
 keybinds {
@@ -31,6 +34,9 @@ keybinds {
         bind "-" { Resize "Decrease"; }
     }
     pane {
+        bind "m" { SwitchToMode "Move"; }
+        bind "r" { SwitchToMode "Resize"; }
+        // Non-custom
         bind "Ctrl p" { SwitchToMode "Normal"; }
         bind "h" "Left" { MoveFocus "Left"; }
         bind "l" "Right" { MoveFocus "Right"; }
@@ -39,7 +45,6 @@ keybinds {
         bind "p" { SwitchFocus; }
         bind "n" { NewPane; SwitchToMode "Normal"; }
         bind "d" { NewPane "Down"; SwitchToMode "Normal"; }
-        bind "r" { NewPane "Right"; SwitchToMode "Normal"; }
         bind "x" { CloseFocus; SwitchToMode "Normal"; }
         bind "f" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
         bind "z" { TogglePaneFrames; SwitchToMode "Normal"; }
@@ -131,29 +136,6 @@ keybinds {
             SwitchToMode "Normal"
         }
     }
-    tmux {
-        bind "[" { SwitchToMode "Scroll"; }
-        bind "Ctrl b" { Write 2; SwitchToMode "Normal"; }
-        bind "\"" { NewPane "Down"; SwitchToMode "Normal"; }
-        bind "%" { NewPane "Right"; SwitchToMode "Normal"; }
-        bind "z" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
-        bind "c" { NewTab; SwitchToMode "Normal"; }
-        bind "," { SwitchToMode "RenameTab"; }
-        bind "p" { GoToPreviousTab; SwitchToMode "Normal"; }
-        bind "n" { GoToNextTab; SwitchToMode "Normal"; }
-        bind "Left" { MoveFocus "Left"; SwitchToMode "Normal"; }
-        bind "Right" { MoveFocus "Right"; SwitchToMode "Normal"; }
-        bind "Down" { MoveFocus "Down"; SwitchToMode "Normal"; }
-        bind "Up" { MoveFocus "Up"; SwitchToMode "Normal"; }
-        bind "h" { MoveFocus "Left"; SwitchToMode "Normal"; }
-        bind "l" { MoveFocus "Right"; SwitchToMode "Normal"; }
-        bind "j" { MoveFocus "Down"; SwitchToMode "Normal"; }
-        bind "k" { MoveFocus "Up"; SwitchToMode "Normal"; }
-        bind "o" { FocusNextPane; }
-        bind "d" { Detach; }
-        bind "Space" { NextSwapLayout; }
-        bind "x" { CloseFocus; SwitchToMode "Normal"; }
-    }
     shared_except "locked" {
         bind "Ctrl g" { SwitchToMode "Locked"; }
         bind "Ctrl q" { Quit; }
@@ -190,9 +172,6 @@ keybinds {
     shared_except "move" "locked" {
         bind "Ctrl h" { SwitchToMode "Move"; }
     }
-    shared_except "tmux" "locked" {
-        bind "Ctrl b" { SwitchToMode "Tmux"; }
-    }
 }
 
 plugins {
@@ -209,44 +188,6 @@ plugins {
     }
 }
 
-// Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
-// eg. when terminal window with an active zellij session is closed
-// Options:
-//   - detach (Default)
-//   - quit
-//
-// on_force_close "quit"
-
-//  Send a request for a simplified ui (without arrow fonts) to plugins
-//  Options:
-//    - true
-//    - false (Default)
-//
-// simplified_ui true
-
-// Choose the path to the default shell that zellij will use for opening new panes
-// Default: $SHELL
-//
-// default_shell "fish"
-
-// Choose the path to override cwd that zellij will use for opening new panes
-//
-// default_cwd ""
-
-// Toggle between having Zellij lay out panes according to a predefined set of layouts whenever possible
-// Options:
-//   - true (default)
-//   - false
-//
-// auto_layout true
-
-// Whether sessions should be serialized to the cache folder (including their tabs/panes, cwds and running commands) so that they can later be resurrected
-// Options:
-//   - true (default)
-//   - false
-//
-// session_serialization false
-
 // Whether pane viewports are serialized along with the session, default is false
 // Options:
 //   - true
@@ -259,35 +200,6 @@ plugins {
 //
 // scrollback_lines_to_serialize 10000
 
-// Define color themes for Zellij
-// For more examples, see: https://github.com/zellij-org/zellij/tree/main/example/themes
-// Once these themes are defined, one of them should to be selected in the "theme" section of this file
-//
-// themes {
-//     dracula {
-//         fg 248 248 242
-//         bg 40 42 54
-//         red 255 85 85
-//         green 80 250 123
-//         yellow 241 250 140
-//         blue 98 114 164
-//         magenta 255 121 198
-//         orange 255 184 108
-//         cyan 139 233 253
-//         black 0 0 0
-//         white 255 255 255
-//     }
-// }
-
-// Toggle enabling the mouse mode.
-// On certain configurations, or terminals this could
-// potentially interfere with copying text.
-// Options:
-//   - true (default)
-//   - false
-//
-// mouse_mode false
-
 // Configure the scroll back buffer size
 // This is the number of lines zellij stores for each pane in the scroll back
 // buffer. Excess number of lines are discarded in a FIFO fashion.
@@ -296,58 +208,7 @@ plugins {
 //
 // scroll_buffer_size 10000
 
-// Provide a command to execute when copying text. The text will be piped to
-// the stdin of the program to perform the copy. This can be used with
-// terminal emulators which do not support the OSC 52 ANSI control sequence
-// that will be used by default if this option is not set.
-// Examples:
-//
-// copy_command "xclip -selection clipboard" // x11
-// copy_command "wl-copy"                    // wayland
-// copy_command "pbcopy"                     // osx
-
-// Choose the destination for copied text
-// Allows using the primary selection buffer (on x11/wayland) instead of the system clipboard.
-// Does not apply when using copy_command.
-// Options:
-//   - system (default)
-//   - primary
-//
-// copy_clipboard "primary"
-
-// Enable or disable automatic copy (and clear) of selection when releasing mouse
-// Default: true
-//
-// copy_on_select false
-
 // Path to the default editor to use to edit pane scrollbuffer
 // Default: $EDITOR or $VISUAL
 //
 // scrollback_editor "/usr/bin/vim"
-
-// When attaching to an existing session with other users,
-// should the session be mirrored (true)
-// or should each user have their own cursor (false)
-// Default: false
-//
-// mirror_session true
-
-// The folder in which Zellij will look for layouts
-//
-// layout_dir "/path/to/my/layout_dir"
-
-// The folder in which Zellij will look for themes
-//
-// theme_dir "/path/to/my/theme_dir"
-
-// Enable or disable the rendering of styled and colored underlines (undercurl).
-// May need to be disabled for certain unsupported terminals
-// Default: true
-//
-// styled_underlines false
-
-// Enable or disable writing of session metadata to disk (if disabled, other sessions might not know
-// metadata info on this session)
-// Default: false
-//
-// disable_session_metadata true

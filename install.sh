@@ -37,6 +37,7 @@ echo "2. Set up zsh"
 ln -sf "$DOTFILES_DIR"/config/zsh/zshenv "$HOME"/.zshenv
 ln -sf "$DOTFILES_DIR"/config/zsh/zshrc "$ZDOTDIR"/.zshrc
 ln -sf "$DOTFILES_DIR"/config/zsh/aliases "$ZDOTDIR"/aliases
+ln -sf "$DOTFILES_DIR"/config/zsh/history "$ZDOTDIR"/history
 
 # 3. Other symlinks
 echo "3. Set up other symlinks"

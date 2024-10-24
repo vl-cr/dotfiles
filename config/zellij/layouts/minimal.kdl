@@ -14,18 +14,18 @@ layout {
                 border_enabled  "false"
                 
                 mode_normal   "   "
+                mode_locked   "#[fg=red]  "
                 mode_session  "#[fg=red] SESSION "
                 mode_tab      "#[fg=red]  "
                 mode_pane     "#[fg=red]  "
-                mode_locked   "#[fg=red]  "
-                mode_tmux     "#[bg=cyan] TMUX"
-                // mode_resize        "#[bg=#89B4FA] {name} "                
-                // mode_scroll        "#[bg=#89B4FA] {name} "
-                // mode_enter_search  "#[bg=#89B4FA] {name} "
-                // mode_search        "#[bg=#89B4FA] {name} "
+                mode_scroll   "#[fg=red] 󰮾 "
+                mode_search   "#[fg=red]  "
+                mode_enter_search  "#[fg=red]  "
+                mode_move     "#[fg=red] 󰆾 "
+                mode_resize   "#[fg=red] 󰙖 "
                 // mode_rename_tab    "#[bg=#89B4FA] {name} "
                 // mode_rename_pane   "#[bg=#89B4FA] {name} "
-                // mode_move          "#[bg=#89B4FA] {name} "
+                
                 // mode_prompt        "#[bg=#89B4FA] {name} "
 
                 // formatting for inactive tabs

@@ -1,4 +1,5 @@
 source $ZDOTDIR/aliases
+source $ZDOTDIR/history
 
 # Zsh
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -9,18 +10,16 @@ ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'  # Make completions case-insensitive
 autoload -Uz compinit && compinit
 
-bindkey -r '^D'
-
-# Zsh History
-setopt SHARE_HISTORY       # To allow all sessions to share history
-setopt INC_APPEND_HISTORY  # Save zsh to history immediately after running the command
-HISTSIZE=10000
-SAVEHIST=10000
+# bindkey -r '^D'
 
 # Evals
+# https://github.com/junegunn/fzf?tab=readme-ov-file#respecting-gitignore
+export FZF_DEFAULT_COMMAND="fd --type f --strip-cwd-prefix --hidden --follow --exclude .git"
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME"/starship/starship.toml
+
 source <(fzf --zsh)
-eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
 
 # Automatically enter Zellij on shell startup only on macOS
 if [[ "$OSTYPE" == "darwin"* ]]; then
