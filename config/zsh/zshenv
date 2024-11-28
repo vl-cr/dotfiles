@@ -22,3 +22,8 @@ fi
 
 # Brewfile install without lock (https://github.com/Homebrew/homebrew-bundle?tab=readme-ov-file#versions-and-lockfiles)
 export HOMEBREW_BUNDLE_NO_LOCK=1
+export HOMEBREW_NO_ANALYTICS=1
+
+# Golang
+export GOPATH=$HOME/go
+export PATH="$GOPATH/bin:$PATH"

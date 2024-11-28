@@ -1,13 +1,23 @@
-brew "awscli"
+# Core dev dependencies
 brew "gcc"
 brew "git"
 brew "go"
 brew "go-task"
-brew "kubectl"
+brew "node@20", link: true
 brew "poetry"
-brew "postgresql@14", restart_service: true
-brew "python@3.12"
+brew "python@3.12", link: true
 
+# Kubernetes
+brew "kubectl"
+brew "helm"
+brew "derailed/k9s/k9s"
+brew "derailed/popeye/popeye"
+
+# Other dev dependencies
+brew "awscli"
+brew "postgresql@14", link: true, restart_service: true
+
+# CLIs
 brew "bat"
 brew "dua-cli"
 brew "delta"
@@ -22,7 +32,6 @@ brew "htop"
 brew "lazydocker"
 brew "lazygit"
 brew "neovim"
-brew "node@20", link: true
 brew "ripgrep"
 brew "sd"
 brew "starship"
@@ -37,10 +46,7 @@ brew "zsh" if OS.linux?
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 
-brew "helm" if OS.mac?
-brew "derailed/k9s/k9s" if OS.mac?
-brew "derailed/popeye/popeye" if OS.mac?
-
+# Casks
 cask "font-fira-code-nerd-font" if OS.mac?
 cask "middleclick", args: { no_quarantine: true } if OS.mac?
 cask "topnotch" if OS.mac?

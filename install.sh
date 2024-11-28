@@ -12,7 +12,6 @@ if ! command -v brew &>/dev/null; then
     echo "Homebrew not found. Installing..."
     # Deps: https://docs.brew.sh/Homebrew-on-Linux#requirements
     export NONINTERACTIVE=1
-    export HOMEBREW_NO_ANALYTICS=1
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
     eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
@@ -21,7 +20,7 @@ fi
 
 # 1. Brew bundle install
 echo "1. Install brew bundle"
-brew bundle install
+brew bundle install --file setup/Brewfile
 brew cleanup
 
 # 2. ZSH

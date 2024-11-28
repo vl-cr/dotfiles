@@ -5,7 +5,7 @@ run: once # By default, only run deps once
 tasks:
   brew:
     desc: Install Brew bundle from dotfiles
-    dir: $DOTFILES_DIR
+    dir: $DOTFILES_DIR/setup
     cmds:
       - brew bundle install
       - brew cleanup
