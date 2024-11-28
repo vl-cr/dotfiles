@@ -56,41 +56,24 @@ ln -sf "$DOTFILES_DIR"/config/wezterm "$XDG_CONFIG_HOME"
 ln -sf "$DOTFILES_DIR"/config/yazi "$XDG_CONFIG_HOME"
 ln -sf "$DOTFILES_DIR"/config/zellij "$XDG_CONFIG_HOME"
 
-# 4. Others installs
-echo "4. Other installs"
-# Install inshellisense (can be accessed on demand with 'is')
-if ! command -v is &>/dev/null; then
-    npm install -g @microsoft/inshellisense
-fi
-# Build bat cache for Catppuccin theme
-bat cache --build
+# 4. Misc setups
+echo "4. Misc setups"
+source setup/miscellaneous.sh
 
-# 5. Make zsh the default shell on Linux (on macOS it's pre-installed)
-# If change to Brew zsh is needed on macOS: https://rick.cogley.info/post/use-homebrew-zsh-instead-of-the-osx-default
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    echo "5. Linux: set Zsh as the default shell"
-
-    # Check if chsh command exists
-    if ! command -v chsh &>/dev/null; then
-        # Check if yum is available
-        if command -v yum &>/dev/null; then
-            echo "chsh not found. Installing util-linux-user..."
-            sudo yum install -y util-linux-user
-        else
-            echo "(!) yum not found. Please install chsh manually."
-            exit 1
-        fi
-    fi
-
-    # Add Zsh to /etc/shells if not already present
-    if ! grep -q "$(which zsh)" /etc/shells; then
-        echo "$(which zsh)" | sudo tee -a /etc/shells
-    fi
-
-    # Change the default shell to Zsh for the current user and restart with zsh
-    sudo chsh -s "$(which zsh)" "$USER"
+# 5. OS-specific setup
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    echo "5. Set up macOS"
+    source setup/macos.sh
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    echo "5. Set up Linux"
+    source setup/linux.sh
 else
-    echo "5. macOS: leaving pre-installed zsh as the default one..."
+    echo "(!) Unsupported OS"
+    exit 1
 fi
 
-echo "✅ Done, starting a new zsh session..." && zsh
+if [ -n "${ZSH_VERSION+x}" ]; then
+    echo "✅ You are all set!"
+else
+    echo "✅ Done, starting a new zsh session..." && zsh
+fi

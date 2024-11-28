@@ -15,7 +15,7 @@ source $ZDOTDIR/bindkeys
 source $ZDOTDIR/cli
 source $ZDOTDIR/history
 
-# Automatically enter Zellij Welcome on shell startup only on macOS
-if [[ "$OSTYPE" == "darwin"* && -z "$ZELLIJ" && "$TERM_PROGRAM" != "vscode" ]]; then
+# Enter Zellij Welcome layout on Wezterm startup
+if [[ -z "$ZELLIJ" && -n "$WEZTERM_EXECUTABLE" ]]; then
     zellij -l welcome
 fi

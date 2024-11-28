@@ -27,3 +27,6 @@ export HOMEBREW_NO_ANALYTICS=1
 # Golang
 export GOPATH=$HOME/go
 export PATH="$GOPATH/bin:$PATH"
+
+# Enforce truecolor, useful for Delta colouring in remote environments
+export COLORTERM="truecolor"
