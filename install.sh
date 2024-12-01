@@ -46,6 +46,7 @@ fi
 # 3. Other symlinks
 echo "3. Set up other symlinks"
 ln -sf "$DOTFILES_DIR"/config/bat "$XDG_CONFIG_HOME"
+ln -sf "$DOTFILES_DIR"/config/bottom "$XDG_CONFIG_HOME"
 ln -sf "$DOTFILES_DIR"/config/git "$XDG_CONFIG_HOME"
 ln -sf "$DOTFILES_DIR"/config/glow "$XDG_CONFIG_HOME"
 ln -sf "$DOTFILES_DIR"/config/k9s "$XDG_CONFIG_HOME"

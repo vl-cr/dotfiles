@@ -19,6 +19,7 @@ brew "postgresql@14", link: true, restart_service: true
 
 # CLIs
 brew "bat"
+brew "bottom"
 brew "dua-cli"
 brew "delta"
 brew "duf"

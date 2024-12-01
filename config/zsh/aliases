@@ -1,15 +1,19 @@
+# ls
 alias ls="eza -a --sort=type --ignore-glob='.DS_Store|.localized'"
 alias lst="eza -a --sort=type --git-ignore --ignore-glob='.DS_Store|.localized' --tree --icons --level=2"  # override with --level=3
+
+# Core utils
 alias cat="bat --paging=never"  # Use 'cat' when default non-pager behaviour is wanted
 alias da="dua interactive"
 alias df="duf"
 alias du="dust"
-alias http="xh"
 alias find="fd --hidden --exclude .git"
 alias grep="rg"
+alias htop="btm --basic"
+alias http="xh"
 alias ping="gping"
 
-# Git
+# FZF
 alias fdck="docker ps -a --format '{{.Names}}' \
   | fzf --multi --prompt='Select containers to kill> ' \
   | xargs docker container kill"
