@@ -4,7 +4,10 @@ return {
         "rmagatti/auto-session",
         config = function()
             local auto_session = require("auto-session")
-            auto_session.setup({ auto_restore_enabled = true })
+            auto_session.setup({
+                auto_restore_enabled = true,
+                auto_sesssion_supress_dirs = { "~/", "~/Downloads", "/" },
+            })
 
             vim.keymap.set("n", "<leader>ow", ":SessionSearch<CR>", { desc = "Session Manager" })
             vim.keymap.set("n", "<leader>or", ":SessionRestore<CR>", { desc = "Restore session (cwd)" })
