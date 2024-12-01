@@ -3,7 +3,7 @@
 ----------------
 -- Set <leader>; Exit with "jj"; "U" = redo in normal mode
 vim.g.mapleader = " "
-vim.keymap.set("i", "jj", "<ESC>", { desc = "Exit insert mode with jj" })
+vim.keymap.set("i", "jj", "<ESC>", { noremap = true, silent = true, desc = "Exit insert mode with jj" })
 vim.keymap.set("n", "U", "<C-r>", { noremap = true, silent = true })
 -- Save and quit and leader w / q
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "which_key_ignore" })
@@ -15,8 +15,8 @@ vim.keymap.set("n", "D", '"_D', { noremap = true, silent = true })
 -- Make regular scrolls and search scrolls recenter on each command
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
-vim.keymap.set("n", "n", "nzzzv", { noremap = true, silent = true })
-vim.keymap.set("n", "N", "Nzzzv", { noremap = true, silent = true })
+vim.keymap.set("n", "n", "nzz", { noremap = true, silent = true })
+vim.keymap.set("n", "N", "Nzz", { noremap = true, silent = true })
 
 --------------------
 -- Custom keymaps --
@@ -36,4 +36,4 @@ vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv", { desc = "Move selected lines u
 vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv", { desc = "Move selected lines down" })
 
 -- Ready-to-use substitution
-vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", { desc = "Substitute" })
+vim.keymap.set("n", "<leader>as", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", { desc = "Substitute" })
