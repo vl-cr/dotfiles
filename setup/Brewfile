@@ -36,6 +36,7 @@ brew "neovim"
 brew "ripgrep"
 brew "sd"
 brew "starship"
+brew "tealdeer"
 brew "watch" if OS.mac?
 brew "wget"
 brew "xh"

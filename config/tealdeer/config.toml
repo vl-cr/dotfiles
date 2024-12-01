@@ -1,0 +1,27 @@
+[display]
+compact = false
+use_pager = false
+
+[directories]
+# https://tealdeer-rs.github.io/tealdeer/usage_custom_pages.html
+custom_pages_dir = "$XDG_CONFIG_HOME/tealdeer/custom/"
+
+[updates]
+auto_update = true
+auto_update_interval_hours = 336
+
+[style.description]
+foreground = "blue"
+bold = true
+
+[style.command_name]
+foreground = "green"
+
+[style.example_text]
+underline = false
+
+[style.example_code]
+foreground = "white"
+
+[style.example_variable]
+foreground = "yellow"
