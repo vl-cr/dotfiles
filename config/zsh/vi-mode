@@ -1,0 +1,41 @@
+# Similar to Neovim essentials in keymaps.lua
+bindkey -M viins "jj" vi-cmd-mode
+bindkey -M vicmd "U" redo
+bindkey -M vicmd "j" down-line
+bindkey -M vicmd "k" up-line
+
+
+### Clipboard ###
+function vi-yank-xclip {
+    zle vi-yank
+    echo -n "$CUTBUFFER" | if command -v pbcopy > /dev/null 2>&1; then
+        pbcopy
+    elif command -v xclip > /dev/null 2>&1; then
+        xclip -selection clipboard
+    elif command -v wl-copy > /dev/null 2>&1; then
+        wl-copy
+    fi
+}
+zle -N vi-yank-xclip
+bindkey -M vicmd 'y' vi-yank-xclip
+
+
+### Cursor ###
+
+# Change cursor shape based on vi mode
+function zle-keymap-select {
+    case $KEYMAP in
+        vicmd) echo -ne '\e[2 q';; # steady block
+        viins|main) echo -ne '\e[6 q';; # steady bar
+    esac
+}
+zle -N zle-keymap-select
+
+# Set initial cursor shape and vi mode
+zle-line-init() { zle -K viins; echo -ne '\e[6 q'; }; zle -N zle-line-init
+
+# Set steady bar cursor on shell startup
+echo -ne '\e[6 q'
+
+# Reset to steady bar cursor after each command
+preexec() { echo -ne '\e[6 q'; }

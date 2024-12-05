@@ -12,7 +12,7 @@ return {
 	window_decorations = "RESIZE",
 	animation_fps = 120,
 	hide_tab_bar_if_only_one_tab = true,
-	default_cursor_style = "SteadyBlock",
+	default_cursor_style = "SteadyBar",
 
 	-- Font
 	font = wezterm.font({ family = "FiraCode Nerd Font" }),

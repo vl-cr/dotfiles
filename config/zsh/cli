@@ -46,9 +46,6 @@ alias -g -- --help="--help 2>&1 | bat --language=help --style=plain"
 # ----- Starship ----- #
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME"/starship/starship.toml
 eval "$(starship init zsh)"
-# Fix the prompt when switching Vim mode
-zle-keymap-select() { RPS1=$([[ $KEYMAP == vicmd ]] && echo "" || echo ""); zle reset-prompt; }
-zle -N zle-keymap-select
 
 # ----- Tealdeer ----- #
 export TEALDEER_CONFIG_DIR="$XDG_CONFIG_HOME/tealdeer"

@@ -14,6 +14,7 @@ source $ZDOTDIR/autocompletions
 source $ZDOTDIR/bindkeys
 source $ZDOTDIR/cli
 source $ZDOTDIR/history
+source $ZDOTDIR/vi-mode
 
 # Enter Zellij Welcome layout on Wezterm startup
 if [[ -z "$ZELLIJ" && -n "$WEZTERM_EXECUTABLE" ]]; then
