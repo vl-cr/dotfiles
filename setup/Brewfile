@@ -18,8 +18,10 @@ brew "awscli"
 brew "postgresql@14", link: true, restart_service: true
 
 # CLIs
+brew "bandwhich"
 brew "bat"
 brew "bottom"
+brew "carapace"
 brew "dua-cli"
 brew "delta"
 brew "duf"

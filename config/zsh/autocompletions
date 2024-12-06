@@ -1,12 +1,24 @@
 autoload -Uz compinit && compinit
 
+# Force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
+zstyle ":completion:*" menu no
+
 # Make completions case-insensitive
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ":completion:*" matcher-list "m:{a-z}={A-Za-z}"
 
-# Use a select menu for completions
-zstyle ':completion:*' menu select
+zstyle ":fzf-tab:*" fzf-flags \
+  --height "90%" --layout=reverse --border \
+  --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#a6e3a1 \
+  --color=fg:#cdd6f4,header:#a6e3a1,info:#cba6f7,pointer:#f5e0dc \
+  --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#a6e3a1 \
+  --color=selected-bg:#45475a \
+  --bind='start:execute-silent([[ -n $ZELLIJ ]] && zellij action switch-mode locked)' \
+  --bind='enter:execute-silent([[ -n $ZELLIJ ]] && zellij action switch-mode normal)+accept' \
+  --bind='esc:execute-silent([[ -n $ZELLIJ ]] && zellij action switch-mode normal)+abort' \
+  --bind='ctrl-c:execute-silent([[ -n $ZELLIJ ]] && zellij action switch-mode normal)+abort'
 
-source <(kubectl completion zsh)
+# https://carapace-sh.github.io/carapace-bin/setup.html#zsh
+export CARAPACE_BRIDGES="zsh"
+zstyle ':completion:*' format $'\e[2;37m%d\e[m'
 
-# Run 'is' for an interactive autocomplete session
-# This is not run by default to avoid slower terminal startup time
+source <(carapace _carapace)

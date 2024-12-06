@@ -62,7 +62,7 @@ ln -sf "$DOTFILES_DIR"/config/zellij "$XDG_CONFIG_HOME"
 
 # 4. Misc setups
 echo "4. Misc setups"
-source setup/miscellaneous.sh
+bat cache --build # Mostly for Catppuccin theme
 
 # 5. OS-specific setup
 if [[ "$OSTYPE" == "darwin"* ]]; then
