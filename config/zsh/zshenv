@@ -24,9 +24,12 @@ fi
 export HOMEBREW_BUNDLE_NO_LOCK=1
 export HOMEBREW_NO_ANALYTICS=1
 
+# Delta: enforce truecolor on remote environments
+export COLORTERM="truecolor"
+
 # Golang
 export GOPATH=$HOME/go
 export PATH="$GOPATH/bin:$PATH"
 
-# Enforce truecolor, useful for Delta colouring in remote environments
-export COLORTERM="truecolor"
+# Sheldon
+export SHELDON_CONFIG_FILE=$XDG_CONFIG_HOME/zsh/plugins.toml

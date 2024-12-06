@@ -1,13 +1,6 @@
 # Homebrew path setup
 eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 
-# Zsh plugins
-source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-(( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES \
-    && ZSH_HIGHLIGHT_STYLES[path]=none \
-    && ZSH_HIGHLIGHT_STYLES[path_prefix]=none  # Remove path underline (from syntax highlighting)
-
 # Source everything else
 source $ZDOTDIR/aliases
 source $ZDOTDIR/autocompletions
@@ -15,6 +8,8 @@ source $ZDOTDIR/bindkeys
 source $ZDOTDIR/cli
 source $ZDOTDIR/history
 source $ZDOTDIR/vi-mode
+
+eval "$(sheldon source)"
 
 # Enter Zellij Welcome layout on Wezterm startup
 if [[ -z "$ZELLIJ" && -n "$WEZTERM_EXECUTABLE" ]]; then

@@ -32,6 +32,7 @@ ln -sf "$DOTFILES_DIR"/config/zsh/autocompletions "$ZDOTDIR"/autocompletions
 ln -sf "$DOTFILES_DIR"/config/zsh/bindkeys "$ZDOTDIR"/bindkeys
 ln -sf "$DOTFILES_DIR"/config/zsh/cli "$ZDOTDIR"/cli
 ln -sf "$DOTFILES_DIR"/config/zsh/history "$ZDOTDIR"/history
+ln -sf "$DOTFILES_DIR"/config/zsh/plugins.toml "$ZDOTDIR"/plugins.toml
 ln -sf "$DOTFILES_DIR"/config/zsh/vi-mode "$ZDOTDIR"/vi-mode
 ln -sf "$DOTFILES_DIR"/Taskfile.yaml "$HOME"/Taskfile.yaml
 

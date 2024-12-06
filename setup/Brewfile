@@ -35,6 +35,7 @@ brew "lazygit"
 brew "neovim"
 brew "ripgrep"
 brew "sd"
+brew "sheldon"
 brew "starship"
 brew "tealdeer"
 brew "watch" if OS.mac?
@@ -45,7 +46,6 @@ brew "yq"
 brew "zellij"
 brew "zoxide"
 brew "zsh" if OS.linux?
-brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 
 # Casks
