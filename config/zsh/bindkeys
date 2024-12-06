@@ -1,3 +1,6 @@
 # Disable Ctrl+D shell exit behavior & Remove Ctrl+D binding from keymap
 setopt IGNORE_EOF
 bindkey -r "^D"
+
+# https://github.com/zsh-users/zsh-autosuggestions/tree/master?tab=readme-ov-file#key-bindings
+bindkey "^ " autosuggest-accept
