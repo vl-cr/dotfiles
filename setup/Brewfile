@@ -46,7 +46,6 @@ brew "yq"
 brew "zellij"
 brew "zoxide"
 brew "zsh" if OS.linux?
-brew "zsh-syntax-highlighting"
 
 # Casks
 cask "font-fira-code-nerd-font" if OS.mac?
