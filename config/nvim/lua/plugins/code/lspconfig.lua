@@ -26,22 +26,22 @@ return {
                 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
 
                 opts.desc = "Show LSP definitions"
-                vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+                vim.keymap.set("n", "gd", ":Telescope lsp_definitions<CR>", opts) -- show lsp definitions
 
                 opts.desc = "Show LSP implementations"
-                vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
+                vim.keymap.set("n", "gi", ":Telescope lsp_implementations<CR>", opts) -- show lsp implementations
 
                 opts.desc = "Show LSP type definitions"
-                vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
+                vim.keymap.set("n", "gt", ":Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
 
                 opts.desc = "Rename (smart)"
                 vim.keymap.set("n", "<leader>ar", vim.lsp.buf.rename, opts) -- smart rename
 
                 opts.desc = "Diagnostics (buffer)"
-                vim.keymap.set("n", "<leader>fd", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
+                vim.keymap.set("n", "<leader>fd", ":Telescope diagnostics bufnr=0<CR>", opts)
 
-                opts.desc = "Docs (at cursor)"
-                vim.keymap.set("n", "Q", vim.lsp.buf.hover, opts)
+                opts.desc = "Docs (hover at cursor)"
+                vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
                 opts.desc = "Line diagnostics"
                 vim.keymap.set("n", "<leader>dl", vim.diagnostic.open_float, opts)

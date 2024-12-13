@@ -27,6 +27,7 @@ return {
                 "pyright",
                 "gopls", -- Go (official)
                 "lua_ls", -- Lua
+                "taplo", -- TOML
             },
         })
 

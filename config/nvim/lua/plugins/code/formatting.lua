@@ -16,7 +16,6 @@ return {
                 css = { "prettier" },
                 html = { "prettier" },
                 json = { "prettier" },
-                markdown = { "prettier" },
                 graphql = { "prettier" },
             },
             format_on_save = {
