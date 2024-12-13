@@ -27,4 +27,11 @@ return {
         main = "ibl",
         opts = { indent = { char = "┊" } },
     },
+    {
+        "kylechui/nvim-surround",
+        event = "VeryLazy",
+        config = function()
+            require("nvim-surround").setup({})
+        end,
+    },
 }
