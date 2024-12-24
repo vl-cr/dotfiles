@@ -9,4 +9,8 @@ show_hidden = false
 show_symlink = true
 
 [preview]
-image_delay = 0
+wrap = "no"
+tab_size = 2
+image_delay = 30
+max_width = 1200
+max_height = 1500
