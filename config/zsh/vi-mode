@@ -1,9 +1,16 @@
+# Enable vi mode
+bindkey -v
+export KEYTIMEOUT=20  # Reduces delay when switching modes
+
 # Similar to Neovim essentials in keymaps.lua
 bindkey -M viins "jj" vi-cmd-mode
 bindkey -M vicmd "U" redo
 bindkey -M vicmd "j" down-line
 bindkey -M vicmd "k" up-line
 
+# Fix backspace behaviour (remove characters before insert mode start character)
+bindkey -M viins '^?' backward-delete-char
+bindkey -M viins '^H' backward-delete-char
 
 ### Clipboard ###
 function vi-yank-xclip {
