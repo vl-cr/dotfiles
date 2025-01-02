@@ -11,7 +11,7 @@ source $ZDOTDIR/vi-mode
 
 eval "$(sheldon source)"
 
-# Enter Zellij Welcome layout on Wezterm startup
-if [[ -z "$ZELLIJ" && -n "$WEZTERM_EXECUTABLE" ]]; then
+# Enter Zellij Welcome layout on Ghostty startup
+if [[ -z "$ZELLIJ" && -n "$GHOSTTY_BIN_DIR" ]]; then
     zellij -l welcome
 fi
