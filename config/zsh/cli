@@ -7,6 +7,7 @@ export FZF_ALT_C_COMMAND="fd --type d --strip-cwd-prefix --hidden --follow --exc
 # Colours are from: https://github.com/catppuccin/fzf
 # FZF Theme Generator: https://vitormv.github.io/fzf-themes
 export FZF_DEFAULT_OPTS="--height 90% --layout=reverse --border \
+    --style="minimal" \
     --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#a6e3a1 \
     --color=fg:#cdd6f4,header:#a6e3a1,info:#cba6f7,pointer:#f5e0dc \
     --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#a6e3a1 \
@@ -28,10 +29,10 @@ _fzf_comprun() {
     shift
 
     case "$command" in
-        cd) fzf --preview "eza --tree --color=always {} | head -200" --preview-window=60%:hidden "$@" ;;
-        export|unset) fzf --preview 'echo "$(printenv {1})"' --preview-window=50% "$@" ;;
-        ssh) fzf --preview "dig {}" "$@" --preview-window=50% ;;
-        *) fzf --preview "bat --style=numbers --line-range :500 {}" --preview-window=60%:hidden "$@" ;;
+        cd) fzf --preview "eza --tree --color=always {} | head -200" --preview-window=65% "$@" ;;
+        export|unset) fzf --preview 'echo "$(printenv {1})"' --preview-window=65% "$@" ;;
+        ssh) fzf --preview "dig {}" "$@" --preview-window=65% ;;
+        *) fzf --preview "bat --style=numbers --line-range :500 {}" --preview-window=65% "$@" ;;
     esac
 }
 
