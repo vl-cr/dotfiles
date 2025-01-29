@@ -1,3 +1,8 @@
+# Taps
+tap "derailed/k9s"
+tap "derailed/popeye"
+tap "hashicorp/tap"
+
 # Core dev dependencies
 brew "gcc"
 brew "git"
@@ -8,10 +13,10 @@ brew "poetry"
 brew "python@3.12", link: true
 
 # Kubernetes
-brew "kubectl"
-brew "helm"
 brew "derailed/k9s/k9s"
 brew "derailed/popeye/popeye"
+brew "helm"
+brew "kubectl"
 
 # Other dev dependencies
 brew "awscli"
@@ -31,7 +36,7 @@ brew "fd"
 brew "fzf"
 brew "glow"
 brew "gping"
-brew "htop"
+brew "hashicorp/tap/terraform"
 brew "lazydocker"
 brew "lazygit"
 brew "neovim"
