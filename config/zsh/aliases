@@ -22,6 +22,7 @@ alias fgbd="git branch | fzf --multi --prompt='Select Git branches to delete> ' 
 # Kubernetes
 alias kc="kubectl"
 alias fkc="kubectl config get-contexts -o name | fzf --prompt='Select context> ' | xargs -r kubectl config use-context"
+alias fkd='kubectl config view -o jsonpath="{.clusters[*].name}" | tr " " "\n" | fzf --prompt="Select cluster to delete> " | xargs -r -I{} kubectl config delete-cluster {}'
 alias fkn="kubectl get namespaces -o custom-columns=':metadata.name' --no-headers \
   | fzf --height=15 --prompt='Select namespace> ' \
   | xargs -r kubectl config set-context --current --namespace"
