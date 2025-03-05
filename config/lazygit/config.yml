@@ -1,6 +1,8 @@
 gui:
- # Use Catppuccin Mocha with blue accent
- # https://github.com/catppuccin/lazygit/blob/main/themes/mocha/blue.yml 
+  # https://github.com/jesseduffield/lazygit/issues/4288
+  switchTabsWithPanelJumpKeys: true
+  # Use Catppuccin Mocha with blue accent
+  # https://github.com/catppuccin/lazygit/blob/main/themes/mocha/blue.yml
   theme:
     activeBorderColor:
       - "#89b4fa"
