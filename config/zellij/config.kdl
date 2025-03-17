@@ -1,3 +1,7 @@
+show_startup_tips false
+show_release_notes true
+stacked_resize true
+
 theme "catppuccin-mocha"
 pane_frames false
 simplified_ui false
