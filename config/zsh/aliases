@@ -30,3 +30,6 @@ alias fkn="kubectl get namespaces -o custom-columns=':metadata.name' --no-header
 # Python
 alias python3="python3.12"
 alias python="python3"
+
+# Misc
+alias r="reset"
