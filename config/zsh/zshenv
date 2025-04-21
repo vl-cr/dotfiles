@@ -1,7 +1,9 @@
 # Define Cross-Desktop Group
 # $HOME/Library/Application\ Support is default on macOS
-# (data is in $HOME/.local/share; cache is in $HOME/Library/Caches)
+# (data default is in $HOME/.local/share; cache is in $HOME/Library/Caches)
 export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.data"
+export XDG_CACHE_HOME="$HOME/.cache"
 
 # Zsh dotfiles dir
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
