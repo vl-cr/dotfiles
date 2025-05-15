@@ -1,6 +1,7 @@
 # ls
 alias ls="eza -a --sort=type --ignore-glob='.DS_Store|.localized'"
 alias lst="eza -a --sort=type --git-ignore --ignore-glob='.DS_Store|.localized' --tree --icons --level=2"  # override with --level=3
+alias lstt="eza -a --sort=type --git-ignore --ignore-glob='.DS_Store|.localized' --tree --icons --level=10"
 
 # Core utils
 alias cat="bat --plain --paging=never"  # Use 'cat' when default non-pager behaviour is wanted
