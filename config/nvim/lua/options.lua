@@ -9,6 +9,9 @@ vim.opt.shiftwidth = 4 -- Number of spaces used for indentation
 vim.opt.expandtab = true -- Use spaces instead of tabs
 vim.opt.autoindent = true -- Apply previous line's indent to the new one
 
+-- Cursor
+vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkwait700-blinkoff400-blinkon250"
+
 -- Search
 vim.opt.hlsearch = true -- Set highlight on search
 vim.opt.ignorecase = true -- Ignore case when searching

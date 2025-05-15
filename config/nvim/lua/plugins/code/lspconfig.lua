@@ -65,14 +65,14 @@ return {
             Info = " ",
         }
 
-        for type, icon in pairs(signs) do
-            local hl = "DiagnosticSign" .. type
-            vim.fn.sign_define(hl, {
-                text = icon,
-                texthl = hl,
-                numhl = "",
-            })
-        end
+        -- for type, icon in pairs(signs) do
+        --     local hl = "DiagnosticSign" .. type
+        --     vim.fn.sign_define(hl, {
+        --         text = icon,
+        --         texthl = hl,
+        --         numhl = "",
+        --     })
+        -- end
 
         -- This is an easy way to configure language-specific servers
         mason_lspconfig.setup_handlers({

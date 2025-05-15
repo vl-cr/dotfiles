@@ -34,7 +34,6 @@ return {
                 -- lualine → see their corresponding lua files
                 mason = true,
                 noice = true,
-                notify = true,
                 telescope = { enabled = true },
                 treesitter = true,
                 treesitter_context = true,

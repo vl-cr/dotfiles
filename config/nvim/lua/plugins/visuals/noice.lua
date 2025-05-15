@@ -5,7 +5,6 @@ return {
     opts = {},
     dependencies = {
         "MunifTanjim/nui.nvim",
-        "rcarriga/nvim-notify", -- Ensure nvim-notify is included as a dependency
     },
     config = function()
         require("noice").setup({
@@ -23,10 +22,6 @@ return {
                 long_message_to_split = true, -- Long messages will be sent to a split
                 inc_rename = false, -- Enables an input dialog for inc-rename.nvim
                 lsp_doc_border = false, -- Add a border to hover docs and signature help
-            },
-            notify = {
-                enabled = true, -- Use nvim-notify for notifications
-                view = "notify", -- Set view to use nvim-notify
             },
         })
     end,
