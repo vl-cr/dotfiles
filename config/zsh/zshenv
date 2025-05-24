@@ -12,11 +12,13 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
 
-# Set Homebrew prefix based on OS
+# Set Homebrew prefix and Firefox config path based on OS
 if [[ "$OSTYPE" == "darwin"* ]]; then
     export HOMEBREW_PREFIX="/opt/homebrew"
+    export FIREFOX_CONFIG_PATH=~/Library/Application\ Support/Firefox
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+    export FIREFOX_CONFIG_PATH=~/snap/firefox/common/.mozilla/firefox
 else
     echo "(!) Unsupported OS"
     exit 1

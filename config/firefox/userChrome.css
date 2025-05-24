@@ -1,0 +1,6 @@
+/* Remove "Open All in Tabs" button from bookmark folders */
+.openintabs-menuseparator,
+.openintabs-menuitem,
+.bookmarks-actions-menuseparator {
+  display: none !important;
+}

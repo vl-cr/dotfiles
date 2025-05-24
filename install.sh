@@ -76,6 +76,11 @@ else
     exit 1
 fi
 
+# Firefox doesn't use XDG_CONFIG_PATH
+mkdir -p "$FIREFOX_CONFIG_PATH"/Profiles/vl-cr/chrome
+ln -sf "$DOTFILES_DIR"/config/firefox/user.js "$FIREFOX_CONFIG_PATH"/Profiles/vl-cr/user.js
+ln -sf "$DOTFILES_DIR"/config/firefox/userChrome.css "$FIREFOX_CONFIG_PATH"/Profiles/vl-cr/chrome/userChrome.css
+
 if [ -n "${ZSH_VERSION+x}" ]; then
     echo "✅ You are all set!"
 else
