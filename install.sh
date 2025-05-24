@@ -64,6 +64,9 @@ ln -sf "$DOTFILES_DIR"/config/zellij "$XDG_CONFIG_HOME"
 echo "4. Misc setups"
 bat cache --build # Mostly for Catppuccin theme
 
+# install Posting (will also install Python 3.13)
+uv tool install --python 3.13 posting
+
 # 5. OS-specific setup
 if [[ "$OSTYPE" == "darwin"* ]]; then
     echo "5. Set up macOS"
