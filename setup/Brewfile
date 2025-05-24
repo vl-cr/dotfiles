@@ -1,6 +1,5 @@
 # Taps
 tap "derailed/k9s"
-tap "derailed/popeye"
 tap "hashicorp/tap"
 
 # Core dev dependencies
@@ -14,7 +13,6 @@ brew "python@3.12", link: true
 
 # Kubernetes
 brew "derailed/k9s/k9s"
-brew "derailed/popeye/popeye"
 brew "helm"
 brew "kubectl"
 
@@ -27,7 +25,7 @@ brew "bandwhich"
 brew "bat"
 brew "bottom"
 brew "carapace"
-brew "docker" if OS.linux?
+brew "docker"
 brew "dua-cli"
 brew "delta"
 brew "duf"
@@ -42,6 +40,7 @@ brew "lazydocker"
 brew "lazygit"
 brew "neovim"
 brew "poppler"
+brew "rainfrog"
 brew "ripgrep"
 brew "sd"
 brew "sheldon"
@@ -56,11 +55,3 @@ brew "yq"
 brew "zellij"
 brew "zoxide"
 brew "zsh" if OS.linux?
-
-# Casks
-cask "docker" if OS.mac?
-cask "font-fira-code-nerd-font" if OS.mac?
-cask "ghostty" if OS.mac?
-cask "middleclick", args: { no_quarantine: true } if OS.mac?
-cask "topnotch" if OS.mac?
-cask "visual-studio-code" if OS.mac?
