@@ -9,4 +9,15 @@ tasks:
     cmds:
       - brew bundle install
       - brew cleanup
-      - brew doctor
+      # - brew doctor
+
+  casks:
+    desc: Install Brew casks from dotfiles
+    dir: $DOTFILES_DIR/setup
+    cmds:
+      - brew bundle install --file=Brewfile-casks
+      - brew cleanup
+      - |
+        if [ ! -f "$FIREFOX_CONFIG_PATH/Profiles/vl-cr/times.json" ]; then
+          firefox -P
+        fi
