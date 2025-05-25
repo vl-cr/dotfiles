@@ -1,6 +1,14 @@
 version: "3"
 
-run: once # By default, only run deps once
+run: once
+
+env:
+  DOTFILES_DIR:
+    sh: |
+      if [ -z "$DOTFILES_DIR" ]; then
+        echo "Error: DOTFILES_DIR environment variable is not set" >&2
+        exit 1
+      fi
 
 tasks:
   brew:
@@ -9,7 +17,6 @@ tasks:
     cmds:
       - brew bundle install
       - brew cleanup
-      # - brew doctor
 
   casks:
     desc: Install Brew casks from dotfiles
@@ -17,6 +24,12 @@ tasks:
     cmds:
       - brew bundle install --file=Brewfile-casks
       - brew cleanup
+
+  snaps:
+    desc: Install snaps for Ubuntu Desktop from dotfiles
+    dir: $DOTFILES_DIR/setup
+    cmds:
+      - bash snaps.sh
       - |
         if [ ! -f "$FIREFOX_CONFIG_PATH/Profiles/vl-cr/times.json" ]; then
           firefox -P
