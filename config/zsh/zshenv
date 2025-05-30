@@ -35,5 +35,9 @@ export COLORTERM="truecolor"
 export GOPATH=$HOME/go
 export PATH="$GOPATH/bin:$PATH"
 
+# Rainfrog
+export RAINFROG_CONFIG=$XDG_CONFIG_HOME/rainfrog
+export RAINFROG_FAVORITES=$RAINFROG_CONFIG/favourites
+
 # Sheldon
 export SHELDON_CONFIG_FILE=$XDG_CONFIG_HOME/zsh/plugins.toml
