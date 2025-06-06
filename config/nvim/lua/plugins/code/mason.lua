@@ -4,6 +4,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
+    cond = not vim.g.vscode,
     config = function()
         local mason = require("mason")
         local mason_lspconfig = require("mason-lspconfig")

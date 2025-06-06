@@ -2,6 +2,7 @@ return {
     { "nvim-lua/plenary.nvim" }, -- Lua functions that many plugins use
     {
         "rmagatti/auto-session",
+        cond = not vim.g.vscode,
         config = function()
             local auto_session = require("auto-session")
             auto_session.setup({
@@ -17,6 +18,7 @@ return {
     {
         "lewis6991/gitsigns.nvim",
         event = { "BufReadPre", "BufNewFile" },
+        cond = not vim.g.vscode,
         config = function()
             require("gitsigns").setup()
         end,
@@ -24,6 +26,7 @@ return {
     {
         "lukas-reineke/indent-blankline.nvim",
         event = { "BufReadPre", "BufNewFile" },
+        cond = not vim.g.vscode,
         main = "ibl",
         opts = { indent = { char = "┊" } },
     },

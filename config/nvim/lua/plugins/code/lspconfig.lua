@@ -1,6 +1,7 @@
 return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" }, -- Only needed when in a buffer, plus loads after Mason
+    cond = not vim.g.vscode,
     dependencies = {
         { "hrsh7th/cmp-nvim-lsp" }, -- Integrate autocompletions with LSP
         { "antosha417/nvim-lsp-file-operations", config = true }, -- Modify imports when file renamed

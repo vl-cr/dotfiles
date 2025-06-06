@@ -1,6 +1,7 @@
 return {
     "mikavilpas/yazi.nvim",
     event = "VeryLazy",
+    cond = not vim.g.vscode,
     keys = {
         {
             "<leader>yy",

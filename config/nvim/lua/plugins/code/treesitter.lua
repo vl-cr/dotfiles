@@ -2,6 +2,7 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         event = { "BufReadPre", "BufNewFile" }, -- Load in event of opening already existing file or new file
+        cond = not vim.g.vscode,
         build = ":TSUpdate", -- Update language parsers alongside plugin updates
         config = function()
             local treesitter = require("nvim-treesitter.configs")
@@ -52,5 +53,6 @@ return {
     {
         "nvim-treesitter/nvim-treesitter-context",
         event = { "BufReadPre", "BufNewFile" },
+        cond = not vim.g.vscode,
     },
 }

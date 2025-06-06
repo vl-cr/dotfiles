@@ -1,6 +1,7 @@
 return {
     "stevearc/conform.nvim",
     event = { "BufReadPre", "BufNewFile" },
+    cond = not vim.g.vscode,
     config = function()
         local conform = require("conform")
 

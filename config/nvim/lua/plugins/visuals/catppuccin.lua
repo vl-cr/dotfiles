@@ -24,6 +24,7 @@ return {
             -- https://github.com/catppuccin/nvim?tab=readme-ov-file#integrations
             integrations = {
                 cmp = true,
+                flash = true,
                 gitsigns = true,
                 indent_blankline = {
                     enabled = true,

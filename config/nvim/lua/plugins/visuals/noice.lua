@@ -6,6 +6,7 @@ return {
     dependencies = {
         "MunifTanjim/nui.nvim",
     },
+    cond = not vim.g.vscode,
     config = function()
         require("noice").setup({
             lsp = {

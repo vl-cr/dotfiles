@@ -6,6 +6,7 @@ return {
         "folke/todo-comments.nvim",
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
+    cond = not vim.g.vscode,
     config = function()
         local telescope = require("telescope")
         local actions = require("telescope.actions")
