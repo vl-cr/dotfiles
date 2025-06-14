@@ -21,6 +21,7 @@ brew "awscli"
 brew "postgresql@14", link: true, restart_service: true
 
 # CLIs
+brew "atuin"
 brew "bandwhich"
 brew "bat"
 brew "bottom"

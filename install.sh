@@ -47,6 +47,7 @@ fi
 
 # 3. Other symlinks
 echo "3. Set up other symlinks"
+ln -sf "$DOTFILES_DIR"/config/atuin "$XDG_CONFIG_HOME"
 ln -sf "$DOTFILES_DIR"/config/bat "$XDG_CONFIG_HOME"
 ln -sf "$DOTFILES_DIR"/config/bottom "$XDG_CONFIG_HOME"
 ln -sf "$DOTFILES_DIR"/config/ghostty "$XDG_CONFIG_HOME"

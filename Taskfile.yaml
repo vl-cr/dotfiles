@@ -11,6 +11,11 @@ env:
       fi
 
 tasks:
+  atuin-login:
+    desc: Login with Atuin
+    cmds:
+      - atuin login -u vl-cr
+
   brew:
     desc: Install Brew bundle from dotfiles
     dir: $DOTFILES_DIR/setup

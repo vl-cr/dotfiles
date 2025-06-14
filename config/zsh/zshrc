@@ -9,6 +9,8 @@ source $ZDOTDIR/cli
 source $ZDOTDIR/history
 source $ZDOTDIR/vi-mode
 
+# CLIs evals
+eval "$(atuin init zsh --disable-ctrl-r)"
 eval "$(sheldon source)"
 
 # Enter Zellij Welcome layout on Ghostty startup

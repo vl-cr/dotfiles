@@ -1,0 +1,49 @@
+# date format used, either "us" or "uk"
+dialect = "uk"
+
+sync_frequency = "10m"
+
+search_mode = "fuzzy"
+
+filter_mode = "global"
+
+search_mode_shell_up_key_binding = "fuzzy"
+
+# which style to use: auto, full, compact
+style = "full"
+
+inline_height = 30
+
+# Invert the UI - put the search bar at the top , Default to `false`
+invert = true
+
+# Use Ctrl-0 ... Ctrl-9 to select command
+ctrl_n_shortcuts = true
+
+# If enabled, upon hitting enter Atuin will immediately execute the command.
+enter_accept = false
+
+[stats]
+# Set commands that will be completely ignored from stats
+ignored_commands = ["cd", "ls", "pwd"]
+
+[keys]
+scroll_exits = false
+exit_past_line_start = false
+accept_past_line_end = false
+
+[sync]
+records = true
+
+[preview]
+strategy = "auto"
+
+[daemon]
+# Enables using the daemon to sync. Requires the daemon to be running in the background. Start it with `atuin daemon`
+enabled = false
+
+[theme]
+name = "catppuccin-mocha-blue"
+
+[search]
+# filters = [ "global", "host", "session", "workspace", "directory" ]
