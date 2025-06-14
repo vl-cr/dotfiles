@@ -3,6 +3,11 @@
 add_newline = true
 palette = "catppuccin_mocha"
 
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[❮](bold yellow)"
+
 [git_branch]
 truncation_length = 10
 truncation_symbol = "~"

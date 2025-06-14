@@ -26,15 +26,25 @@ function vi-yank-xclip {
 zle -N vi-yank-xclip
 bindkey -M vicmd 'y' vi-yank-xclip
 
-
-### Cursor ###
-
-# Change cursor shape based on vi mode
+# Combined function for cursor shape and zellij lock mode
 function zle-keymap-select {
     case $KEYMAP in
-        vicmd) echo -ne '\e[2 q';; # steady block
-        viins|main) echo -ne '\e[6 q';; # steady bar
+        vicmd) 
+            echo -ne '\e[2 q'
+            if [[ -n "$ZELLIJ" ]]; then
+                zellij action switch-mode locked
+            fi
+            export STARSHIP_VI_MODE="normal"
+            ;;
+        viins|main) 
+            echo -ne '\e[6 q'
+            if [[ -n "$ZELLIJ" ]]; then
+                zellij action switch-mode normal
+            fi
+            export STARSHIP_VI_MODE="insert"
+            ;;
     esac
+    zle reset-prompt
 }
 zle -N zle-keymap-select
 
