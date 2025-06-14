@@ -1,6 +1,8 @@
 gui:
   # https://github.com/jesseduffield/lazygit/issues/4288
   switchTabsWithPanelJumpKeys: true
+  # Whether to add a "/" root item in the file tree
+  showRootItemInFileTree: false
   # Use Catppuccin Mocha with blue accent
   # https://github.com/catppuccin/lazygit/blob/main/themes/mocha/blue.yml
   theme:
