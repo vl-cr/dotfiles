@@ -1,6 +1,6 @@
 # https://github.com/catppuccin/yazi/blob/main/themes/mocha/catppuccin-mocha-blue.toml
 # Alternative: https://github.com/yazi-rs/flavors/tree/main/catppuccin-mocha.yazi
-[manager]
+[mgr]
 cwd = { fg = "#94e2d5" }
 
 hovered = { fg = "#1e1e2e", bg = "#89b4fa" }
