@@ -7,11 +7,11 @@ return {
 
         conform.setup({
             formatters_by_ft = {
-                python = { "ruff" },
-                sh = { "shfmt" },
-                bash = { "shfmt" },
+                -- python = { "ruff" },
+                -- sh = { "shfmt" },
+                -- bash = { "shfmt" },
                 lua = { "stylua" },
-                yaml = { "prettier" },
+                -- yaml = { "prettier" },
                 javascript = { "prettier" },
                 typescript = { "prettier" },
                 css = { "prettier" },
