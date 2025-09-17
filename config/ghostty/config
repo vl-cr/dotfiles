@@ -3,7 +3,7 @@ shell-integration = zsh
 
 font-size = 13
 
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
 fullscreen = true
 window-padding-x = 10,10
 window-padding-y = 5,5
