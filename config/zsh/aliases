@@ -34,3 +34,6 @@ alias python="python3"
 
 # Misc
 alias r="reset"
+alias y="yazi"
+alias lg="lazygit"
+alias ld="lazydocker"

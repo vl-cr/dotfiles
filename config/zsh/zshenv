@@ -31,6 +31,9 @@ export HOMEBREW_NO_ANALYTICS=1
 # Delta: enforce truecolor on remote environments
 export COLORTERM="truecolor"
 
+# Gemini CLI
+export GEMINI_CLI_SYSTEM_SETTINGS_PATH=$HOME/.config/gemini/settings.json
+
 # Golang
 export GOPATH=$HOME/go
 export PATH="$GOPATH/bin:$PATH"
