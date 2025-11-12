@@ -12,6 +12,8 @@ macos-option-as-alt = true
 macos-titlebar-style = hidden
 macos-non-native-fullscreen = true
 
+keybind = cmd+c=copy_to_clipboard
+keybind = cmd+v=paste_from_clipboard
 keybind = f10=toggle_fullscreen
 keybind = alt+left=unbind
 keybind = alt+right=unbind
