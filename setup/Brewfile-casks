@@ -1,5 +1,5 @@
 cask "bitwarden" if OS.mac?
-cask "docker" if OS.mac?
+cask "docker-desktop" if OS.mac?
 cask "firefox" if OS.mac?
 cask "font-fira-code-nerd-font"
 cask "ghostty" if OS.mac?

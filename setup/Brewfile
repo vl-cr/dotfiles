@@ -7,14 +7,13 @@ brew "gcc"
 brew "git"
 brew "go"
 brew "go-task"
-brew "node@20", link: true
 brew "poetry"
 brew "python@3.12", link: true
 
 # Kubernetes
-brew "derailed/k9s/k9s"
-brew "helm"
-brew "kubectl"
+# brew "derailed/k9s/k9s"
+# brew "helm"
+# brew "kubectl"
 
 # Other dev dependencies
 brew "awscli"
