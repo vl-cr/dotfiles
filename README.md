@@ -22,5 +22,5 @@ bash install.sh
 2. Optional casks installation:
 
 ```bash
-task -g casks
+tg casks
 ```

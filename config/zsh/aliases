@@ -1,3 +1,6 @@
+# Globals
+alias tg="task -g"
+
 # ls
 alias ls="eza -a --sort=type --ignore-glob='.DS_Store|.localized'"
 alias lst="eza -a --sort=type --git-ignore --ignore-glob='.DS_Store|.localized' --tree --icons --level=2"  # override with --level=3
