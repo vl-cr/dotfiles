@@ -14,3 +14,19 @@ defaults write -g NSWindowShouldDragOnGesture -bool true
 
 # If change to Brew zsh is needed on macOS: https://rick.cogley.info/post/use-homebrew-zsh-instead-of-the-osx-default
 echo "macOS: Leaving pre-installed zsh as the default one (check if it's stale)"
+
+# Reduce Liquid Glass transparency
+defaults write com.apple.universalaccess reduceTransparency -bool true
+
+# Trackpad: Disable "Natural scrolling"
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+
+# Trackpad: Enable "Tap to click"
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+# Trackpad: Disable "Smart zoom" (double-tap with two fingers, which makes double-tap right clicks slow)
+defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerDoubleTapGesture -int 0
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerDoubleTapGesture -int 0
