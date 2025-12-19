@@ -29,6 +29,10 @@ tasks:
     cmds:
       - brew bundle install --file=Brewfile-casks
       - brew cleanup
+      - |
+        if [ ! -f "$FIREFOX_CONFIG_PATH/Profiles/vl-cr/times.json" ]; then
+          firefox -P
+        fi
 
   snaps:
     desc: Install snaps for Ubuntu Desktop from dotfiles

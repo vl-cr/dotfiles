@@ -81,10 +81,14 @@ else
     exit 1
 fi
 
-# Firefox doesn't use XDG_CONFIG_PATH
+# 6. Firefox (doesn't use XDG_CONFIG_PATH)
+echo "6. Set up Firefox"
 mkdir -p "$FIREFOX_CONFIG_PATH"/Profiles/vl-cr/chrome
 ln -sf "$DOTFILES_DIR"/config/firefox/user.js "$FIREFOX_CONFIG_PATH"/Profiles/vl-cr/user.js
 ln -sf "$DOTFILES_DIR"/config/firefox/userChrome.css "$FIREFOX_CONFIG_PATH"/Profiles/vl-cr/chrome/userChrome.css
+ln -sf "$DOTFILES_DIR"/config/firefox/installs.ini "$FIREFOX_CONFIG_PATH"/installs.ini
+ln -sf "$DOTFILES_DIR"/config/firefox/profiles.ini "$FIREFOX_CONFIG_PATH"/profiles.ini
+
 
 if [ -n "${ZSH_VERSION+x}" ]; then
     echo "✅ You are all set!"
