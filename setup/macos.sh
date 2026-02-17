@@ -2,8 +2,8 @@
 
 echo "macOS: changing OS defaults..."
 
-# Disable key longpress in apps
-defaults write md.obsidian ApplePressAndHoldEnabled -bool false
+# Control key longpress in apps
+defaults write md.obsidian ApplePressAndHoldEnabled -bool true
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
 # Finder: Show hidden files
@@ -15,8 +15,8 @@ defaults write -g NSWindowShouldDragOnGesture -bool true
 # If change to Brew zsh is needed on macOS: https://rick.cogley.info/post/use-homebrew-zsh-instead-of-the-osx-default
 echo "macOS: Leaving pre-installed zsh as the default one (check if it's stale)"
 
-# Reduce Liquid Glass transparency
-defaults write com.apple.universalaccess reduceTransparency -bool true
+# Disable double-space full stop insert
+defaults write -g NSAutomaticPeriodSubstitutionEnabled -bool false
 
 # Trackpad: Disable "Natural scrolling"
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
