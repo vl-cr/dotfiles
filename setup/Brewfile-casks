@@ -1,7 +1,10 @@
-cask "bitwarden" if OS.mac?
+# cask "bitwarden" if OS.mac?
+cask "codex" if OS.mac?
+cask "codex-app" if OS.mac?
 cask "docker-desktop" if OS.mac?
 cask "firefox" if OS.mac?
 cask "font-fira-code-nerd-font"
+cask "gcloud-cli" if OS.mac?
 cask "ghostty" if OS.mac?
 cask "middleclick", args: { no_quarantine: true } if OS.mac?
 cask "obsidian" if OS.mac?
