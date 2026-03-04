@@ -1,5 +1,5 @@
 # Taps
-tap "derailed/k9s"
+# tap "derailed/k9s"
 tap "hashicorp/tap"
 
 # Core dev dependencies
@@ -7,8 +7,7 @@ brew "gcc"
 brew "git"
 brew "go"
 brew "go-task"
-brew "poetry"
-brew "python@3.12", link: true
+brew "python@3.14", link: true
 
 # Kubernetes
 # brew "derailed/k9s/k9s"
@@ -17,7 +16,7 @@ brew "python@3.12", link: true
 
 # Other dev dependencies
 brew "awscli"
-brew "postgresql@14", link: true, restart_service: true
+# brew "postgresql@14", link: true, restart_service: true
 
 # CLIs
 brew "atuin"
