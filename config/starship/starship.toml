@@ -31,6 +31,9 @@ symbol = ""
 format = '  [$symbol ($profile)(\[$duration\])]($style)'
 style = "bold yellow"
 
+[gcloud]
+disabled = true
+
 [package]
 disabled = true
 
