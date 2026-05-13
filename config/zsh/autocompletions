@@ -1,4 +1,4 @@
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -i
 
 # Force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
 zstyle ":completion:*" menu no
@@ -22,4 +22,31 @@ zstyle ":fzf-tab:*" fzf-flags \
 export CARAPACE_BRIDGES="zsh"
 zstyle ':completion:*' format $'\e[2;37m%d\e[m'
 
-source <(carapace _carapace)
+if (( $+commands[carapace] )); then
+  _dotfiles_setup_carapace() {
+    emulate -L zsh
+    setopt no_bg_nice
+
+    local carapace_cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/carapace"
+    local carapace_zsh_init="$carapace_cache_dir/init.zsh"
+    local carapace_zsh_init_tmp="$carapace_zsh_init.$$.$RANDOM"
+
+    if [[ -r "$carapace_zsh_init" ]]; then
+      source "$carapace_zsh_init"
+    fi
+
+    # Refresh asynchronously so shell startup is not blocked by bridge discovery.
+    if [[ ! -r "$carapace_zsh_init" || "$commands[carapace]" -nt "$carapace_zsh_init" ]]; then
+      {
+        mkdir -p "$carapace_cache_dir" &&
+          carapace _carapace zsh >| "$carapace_zsh_init_tmp" &&
+          mv -f "$carapace_zsh_init_tmp" "$carapace_zsh_init"
+
+        rm -f "$carapace_zsh_init_tmp"
+      } 2>/dev/null &!
+    fi
+  }
+
+  _dotfiles_setup_carapace
+  unfunction _dotfiles_setup_carapace
+fi

@@ -10,7 +10,7 @@ alias lstt="eza -a --sort=type --git-ignore --ignore-glob='.DS_Store|.localized'
 alias cat="bat --plain --paging=never"  # Use 'cat' when default non-pager behaviour is wanted
 alias da="dua interactive"
 alias df="duf"
-alias du="dust"
+alias du="dua i"
 alias find="fd --hidden --exclude .git"
 alias grep="rg"
 alias htop="btm --basic"
@@ -32,7 +32,7 @@ alias fkn="kubectl get namespaces -o custom-columns=':metadata.name' --no-header
   | xargs -r kubectl config set-context --current --namespace"
 
 # Python
-alias python3="python3.12"
+alias python3="python3.14"
 alias python="python3"
 
 # Misc

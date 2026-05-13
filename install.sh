@@ -25,9 +25,15 @@ brew cleanup
 
 # 2. ZSH
 echo "2. Set up zsh"
+
+if [ ! -e "$DOTFILES_DIR/config/zsh/apis" ]; then
+  cp "$DOTFILES_DIR/config/zsh/apis.example" "$DOTFILES_DIR/config/zsh/apis"
+fi
+
 ln -sf "$DOTFILES_DIR"/config/zsh/zshenv "$HOME"/.zshenv
 ln -sf "$DOTFILES_DIR"/config/zsh/zshrc "$ZDOTDIR"/.zshrc
 ln -sf "$DOTFILES_DIR"/config/zsh/aliases "$ZDOTDIR"/aliases
+ln -sf "$DOTFILES_DIR"/config/zsh/apis "$ZDOTDIR"/apis
 ln -sf "$DOTFILES_DIR"/config/zsh/autocompletions "$ZDOTDIR"/autocompletions
 ln -sf "$DOTFILES_DIR"/config/zsh/bindkeys "$ZDOTDIR"/bindkeys
 ln -sf "$DOTFILES_DIR"/config/zsh/cli "$ZDOTDIR"/cli
@@ -67,7 +73,7 @@ echo "4. Misc setups"
 bat cache --build # Mostly for Catppuccin theme
 
 # install Posting (will also install Python 3.13)
-uv tool install --python 3.13 posting
+uv tool install --python 3.14 posting
 
 # 5. OS-specific setup
 if [[ "$OSTYPE" == "darwin"* ]]; then
