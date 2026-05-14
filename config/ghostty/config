@@ -4,13 +4,14 @@ shell-integration = zsh
 font-size = 13
 
 theme = Catppuccin Mocha
-fullscreen = true
+fullscreen = false
+maximize = true
 window-padding-x = 10,10
 window-padding-y = 5,5
 
 macos-option-as-alt = true
 macos-titlebar-style = hidden
-macos-non-native-fullscreen = true
+macos-non-native-fullscreen = visible-menu
 
 keybind = cmd+c=copy_to_clipboard
 keybind = cmd+v=paste_from_clipboard
