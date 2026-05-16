@@ -1,6 +1,7 @@
 # cask "bitwarden" if OS.mac?
 cask "codex" if OS.mac?
 cask "codex-app" if OS.mac?
+cask "command-x" if OS.mac?
 cask "docker-desktop" if OS.mac?
 cask "firefox" if OS.mac?
 cask "font-fira-code-nerd-font"
