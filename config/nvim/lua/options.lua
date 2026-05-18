@@ -17,6 +17,13 @@ vim.opt.hlsearch = true -- Set highlight on search
 vim.opt.ignorecase = true -- Ignore case when searching
 vim.opt.smartcase = true -- Assumes you want case-sensitive if you include mixed case
 
+-- Filetypes
+vim.filetype.add({
+    extension = {
+        gotmpl = "gotmpl",
+    },
+})
+
 -- Splits
 vim.opt.splitright = true -- Split vertical window to the right
 vim.opt.splitbelow = true -- Split horizontal window to the bottom

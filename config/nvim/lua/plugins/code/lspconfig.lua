@@ -1,6 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" }, -- Only needed when in a buffer, plus loads after Mason
+    event = { "BufReadPre", "BufNewFile" },
     cond = not vim.g.vscode,
     dependencies = {
         { "hrsh7th/cmp-nvim-lsp" }, -- Integrate autocompletions with LSP
@@ -8,8 +8,6 @@ return {
         { "folke/neodev.nvim", opts = {} }, -- Improved LSP for Lua when working on Neovim config
     },
     config = function()
-        local lspconfig = require("lspconfig")
-        local mason_lspconfig = require("mason-lspconfig")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
         -- Autocmd will execute everything inside on each LSP attach to a buffer
@@ -75,32 +73,36 @@ return {
         --     })
         -- end
 
-        -- This is an easy way to configure language-specific servers
-        mason_lspconfig.setup_handlers({
-            -- Default handler for installed servers
-            function(server_name)
-                lspconfig[server_name].setup({
-                    capabilities = capabilities,
-                })
-            end,
+        vim.lsp.config("*", {
+            capabilities = capabilities,
+        })
 
-            ["lua_ls"] = function()
-                -- Configure lua server (with special settings)
-                lspconfig["lua_ls"].setup({
-                    capabilities = capabilities,
-                    settings = {
-                        Lua = {
-                            -- Make the language server recognize "vim" global
-                            diagnostics = {
-                                globals = { "vim" },
-                            },
-                            completion = {
-                                callSnippet = "Replace",
-                            },
-                        },
+        vim.lsp.config("lua_ls", {
+            settings = {
+                Lua = {
+                    diagnostics = {
+                        globals = { "vim" },
                     },
-                })
-            end,
+                    completion = {
+                        callSnippet = "Replace",
+                    },
+                },
+            },
+        })
+
+        vim.lsp.config("taplo", {
+            init_options = {
+                configurationSection = "evenBetterToml",
+                cachePath = vim.fs.joinpath(vim.fn.stdpath("cache"), "taplo"),
+            },
+            settings = {
+                evenBetterToml = {
+                    schema = {
+                        enabled = false,
+                        catalogs = {},
+                    },
+                },
+            },
         })
     end,
 }
