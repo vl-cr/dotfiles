@@ -68,6 +68,7 @@ ln -sf "$DOTFILES_DIR"/config/tealdeer "$XDG_CONFIG_HOME"
 ln -sf "$DOTFILES_DIR"/config/yazi "$XDG_CONFIG_HOME"
 ln -sf "$DOTFILES_DIR"/config/zellij "$XDG_CONFIG_HOME"
 
+mkdir -p "$CODEX_HOME"
 # 4. Misc setups
 echo "4. Misc setups"
 bat cache --build # Mostly for Catppuccin theme

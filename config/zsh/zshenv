@@ -28,11 +28,11 @@ fi
 export HOMEBREW_BUNDLE_NO_LOCK=1
 export HOMEBREW_NO_ANALYTICS=1
 
+# Codex
+export CODEX_HOME=$HOME/.codex
+
 # Delta: enforce truecolor on remote environments
 export COLORTERM="truecolor"
-
-# Gemini CLI
-export GEMINI_CLI_SYSTEM_SETTINGS_PATH=$HOME/.config/gemini/settings.json
 
 # Golang
 export GOPATH=$HOME/go
