@@ -3,6 +3,7 @@ eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 
 # Source everything else
 source $ZDOTDIR/aliases
+source $ZDOTDIR/apis
 source $ZDOTDIR/autocompletions
 source $ZDOTDIR/bindkeys
 source $ZDOTDIR/cli
