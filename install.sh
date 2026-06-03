@@ -70,6 +70,7 @@ ln -sf "$DOTFILES_DIR"/config/zellij "$XDG_CONFIG_HOME"
 
 mkdir -p "$CODEX_HOME"
 ln -sf "$DOTFILES_DIR"/config/codex/AGENTS.md "$CODEX_HOME"/AGENTS.md
+ln -sf "$DOTFILES_DIR"/config/codex/keybindings.json "$CODEX_HOME"/keybindings.json
 
 # 4. Misc setups
 echo "4. Misc setups"

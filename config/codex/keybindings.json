@@ -1,0 +1,14 @@
+[
+  {
+    "command": "openCommandMenu",
+    "key": "CmdOrCtrl+P"
+  },
+  {
+    "command": "openCommandMenu",
+    "key": "CmdOrCtrl+Shift+P"
+  },
+  {
+    "command": "searchFiles",
+    "key": "CmdOrCtrl+S"
+  }
+]
