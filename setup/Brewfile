@@ -1,20 +1,23 @@
 # Taps
-# tap "derailed/k9s"
+tap "derailed/k9s"
 tap "hashicorp/tap"
 
-# Core dev dependencies
 brew "gcc"
+
+# Core dev dependencies
+brew "azure-cli"
 brew "git"
 brew "go"
 brew "go-task"
-brew "node"
+brew "node@22", link: true
+brew "pnpm"
 brew "python@3.14", link: true
 brew "tree-sitter-cli"
 
 # Kubernetes
-# brew "derailed/k9s/k9s"
-# brew "helm"
-# brew "kubectl"
+brew "derailed/k9s/k9s"
+brew "helm"
+brew "kubectl"
 
 # Other dev dependencies
 # brew "awscli"
