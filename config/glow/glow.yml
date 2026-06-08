@@ -1,6 +1,3 @@
-# Style name or JSON path (default "auto")
-style: "$XDG_CONFIG_HOME/glow/catppuccin-mocha.json"
-
 # Mouse support (TUI-mode only)
 mouse: true
 
