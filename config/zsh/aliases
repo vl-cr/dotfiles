@@ -12,6 +12,7 @@ alias da="dua interactive"
 alias df="duf"
 alias du="dua i"
 alias find="fd --hidden --exclude .git"
+alias glow='glow --style "$XDG_CONFIG_HOME/glow/catppuccin-mocha.json"'
 alias grep="rg"
 alias htop="btm --basic"
 alias http="xh"
