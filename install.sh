@@ -69,8 +69,10 @@ ln -sf "$DOTFILES_DIR"/config/yazi "$XDG_CONFIG_HOME"
 ln -sf "$DOTFILES_DIR"/config/zellij "$XDG_CONFIG_HOME"
 
 mkdir -p "$CODEX_HOME"
+mkdir -p "$CODEX_HOME"/rules
 ln -sf "$DOTFILES_DIR"/config/codex/AGENTS.md "$CODEX_HOME"/AGENTS.md
 ln -sf "$DOTFILES_DIR"/config/codex/keybindings.json "$CODEX_HOME"/keybindings.json
+ln -sf "$DOTFILES_DIR"/config/codex/rules/default.rules "$CODEX_HOME"/rules/default.rules
 
 # 4. Misc setups
 echo "4. Misc setups"
