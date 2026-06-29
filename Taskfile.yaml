@@ -43,3 +43,14 @@ tasks:
         if [ ! -f "$FIREFOX_CONFIG_PATH/Profiles/vl-cr/times.json" ]; then
           firefox -P
         fi
+
+  skills-install:
+    desc: Install skills listed in setup/skills.txt or one owner/repo argument
+    cmds:
+      - bash "$DOTFILES_DIR/setup/skills.sh" {{.CLI_ARGS}}
+
+  skills-update:
+    desc: Update skills installed with skills.sh
+    cmds:
+      - npx -y skills update -g -y
+
