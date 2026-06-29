@@ -1,0 +1,5 @@
+# Codex skills installed with https://www.skills.sh
+# Format: owner/repo [npx skills add options...]
+openai/skills --skill openai-docs
+tyom/skills
+DietrichGebert/ponytail --skill ponytail --skill ponytail-review --skill ponytail-audit

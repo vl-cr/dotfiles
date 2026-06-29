@@ -12,6 +12,9 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
 
+# No telemetry
+export DISABLE_TELEMETRY=1
+
 # Set Homebrew prefix and Firefox config path based on OS
 if [[ "$OSTYPE" == "darwin"* ]]; then
     export HOMEBREW_PREFIX="/opt/homebrew"
