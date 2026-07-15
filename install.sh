@@ -68,6 +68,9 @@ ln -sf "$DOTFILES_DIR"/config/tealdeer "$XDG_CONFIG_HOME"
 ln -sf "$DOTFILES_DIR"/config/yazi "$XDG_CONFIG_HOME"
 ln -sf "$DOTFILES_DIR"/config/zellij "$XDG_CONFIG_HOME"
 
+mkdir -p "$XDG_CONFIG_HOME"/containers
+ln -sf "$DOTFILES_DIR"/config/containers/containers.conf "$XDG_CONFIG_HOME"/containers/containers.conf
+
 mkdir -p "$CODEX_HOME"
 mkdir -p "$CODEX_HOME"/rules
 ln -sf "$DOTFILES_DIR"/config/codex/AGENTS.md "$CODEX_HOME"/AGENTS.md

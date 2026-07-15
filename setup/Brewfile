@@ -1,6 +1,6 @@
 # Taps
-tap "derailed/k9s"
-tap "hashicorp/tap"
+tap "derailed/k9s", trusted: true
+tap "hashicorp/tap", trusted: true
 
 brew "gcc"
 
@@ -29,9 +29,9 @@ brew "bandwhich"
 brew "bat"
 brew "bottom"
 brew "carapace"
-brew "docker"
 brew "dua-cli"
 brew "delta"
+brew "docker"
 brew "duf"
 brew "eza"
 brew "fastfetch"
@@ -44,6 +44,8 @@ brew "hashicorp/tap/terraform"
 brew "lazydocker"
 brew "lazygit"
 brew "neovim"
+brew "podman"
+brew "podman-compose"
 brew "poppler"
 brew "rainfrog"
 brew "ripgrep"
