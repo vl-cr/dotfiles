@@ -24,6 +24,10 @@ alias fdck="docker ps -a --format '{{.Names}}' \
   | xargs docker container kill"
 alias fgbd="git branch | fzf --multi --prompt='Select Git branches to delete> ' | xargs git branch -D"
 
+# Docker / Podman
+# alias docker="podman"
+# alias docker-compose="podman-compose"
+
 # Kubernetes
 alias kc="kubectl"
 alias fkc="kubectl config get-contexts -o name | fzf --prompt='Select context> ' | xargs -r kubectl config use-context"

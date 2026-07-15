@@ -34,6 +34,19 @@ tasks:
           firefox -P
         fi
 
+  rosetta:
+    desc: Install Rosetta on Apple Silicon Macs
+    platforms: [darwin]
+    cmds:
+      - |
+        if [ "$(uname -m)" != "arm64" ]; then
+          echo "Rosetta is only needed on Apple Silicon Macs."
+        elif pkgutil --pkg-info com.apple.pkg.RosettaUpdateAuto >/dev/null 2>&1; then
+          echo "Rosetta is already installed."
+        else
+          sudo softwareupdate --install-rosetta --agree-to-license
+        fi
+
   snaps:
     desc: Install snaps for Ubuntu Desktop from dotfiles
     dir: $DOTFILES_DIR/setup
@@ -56,4 +69,3 @@ tasks:
     desc: Update skills installed with the skills CLI
     cmds:
       - npx -y skills update -g -y
-
