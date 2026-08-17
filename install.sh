@@ -71,36 +71,39 @@ ln -sf "$DOTFILES_DIR"/config/zellij "$XDG_CONFIG_HOME"
 mkdir -p "$XDG_CONFIG_HOME"/containers
 ln -sf "$DOTFILES_DIR"/config/containers/containers.conf "$XDG_CONFIG_HOME"/containers/containers.conf
 
+# 4. Codex
+echo "4. Set up Codex"
 mkdir -p "$CODEX_HOME"
 mkdir -p "$CODEX_HOME"/rules
 if [[ ! -e "$CODEX_HOME"/config.toml && ! -L "$CODEX_HOME"/config.toml ]]; then
     cp "$DOTFILES_DIR"/config/codex/config.toml "$CODEX_HOME"/config.toml
 fi
 ln -sf "$DOTFILES_DIR"/config/codex/AGENTS.md "$CODEX_HOME"/AGENTS.md
+ln -sfn "$DOTFILES_DIR"/config/codex/instructions "$CODEX_HOME"/instructions
 ln -sf "$DOTFILES_DIR"/config/codex/keybindings.json "$CODEX_HOME"/keybindings.json
 ln -sf "$DOTFILES_DIR"/config/codex/rules/default.rules "$CODEX_HOME"/rules/default.rules
 
-# 4. Misc setups
-echo "4. Misc setups"
+# 5. Misc setups
+echo "5. Misc setups"
 bat cache --build # Mostly for Catppuccin theme
 
 # install Posting (will also install Python 3.13)
 uv tool install --python 3.14 posting
 
-# 5. OS-specific setup
+# 6. OS-specific setup
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    echo "5. Set up macOS"
+    echo "6. Set up macOS"
     source setup/macos.sh
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    echo "5. Set up Linux"
+    echo "6. Set up Linux"
     source setup/linux.sh
 else
     echo "(!) Unsupported OS"
     exit 1
 fi
 
-# 6. Firefox (doesn't use XDG_CONFIG_PATH)
-echo "6. Set up Firefox"
+# 7. Firefox (doesn't use XDG_CONFIG_PATH)
+echo "7. Set up Firefox"
 mkdir -p "$FIREFOX_CONFIG_PATH"/Profiles/vl-cr/chrome
 ln -sf "$DOTFILES_DIR"/config/firefox/user.js "$FIREFOX_CONFIG_PATH"/Profiles/vl-cr/user.js
 ln -sf "$DOTFILES_DIR"/config/firefox/userChrome.css "$FIREFOX_CONFIG_PATH"/Profiles/vl-cr/chrome/userChrome.css
