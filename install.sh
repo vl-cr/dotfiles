@@ -11,7 +11,7 @@ mkdir -p "$ZDOTDIR"
 if ! command -v brew &>/dev/null; then
     echo "Homebrew not found. Installing..."
     # Deps: https://docs.brew.sh/Homebrew-on-Linux#requirements
-    export NONINTERACTIVE=1
+    # export NONINTERACTIVE=1
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
     eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
