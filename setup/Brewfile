@@ -5,7 +5,6 @@ tap "hashicorp/tap", trusted: true
 brew "gcc"
 
 # Core dev dependencies
-brew "azure-cli"
 brew "git"
 brew "go"
 brew "go-task"
@@ -20,6 +19,7 @@ brew "helm"
 brew "kubectl"
 
 # Other dev dependencies
+# brew "azure-cli"
 # brew "awscli"
 # brew "postgresql@14", link: true, restart_service: true
 
@@ -44,8 +44,8 @@ brew "hashicorp/tap/terraform"
 brew "lazydocker"
 brew "lazygit"
 brew "neovim"
-brew "podman"
-brew "podman-compose"
+# brew "podman"
+# brew "podman-compose"
 brew "poppler"
 brew "rainfrog"
 brew "ripgrep"
