@@ -73,6 +73,9 @@ ln -sf "$DOTFILES_DIR"/config/containers/containers.conf "$XDG_CONFIG_HOME"/cont
 
 mkdir -p "$CODEX_HOME"
 mkdir -p "$CODEX_HOME"/rules
+if [[ ! -e "$CODEX_HOME"/config.toml && ! -L "$CODEX_HOME"/config.toml ]]; then
+    cp "$DOTFILES_DIR"/config/codex/config.toml "$CODEX_HOME"/config.toml
+fi
 ln -sf "$DOTFILES_DIR"/config/codex/AGENTS.md "$CODEX_HOME"/AGENTS.md
 ln -sf "$DOTFILES_DIR"/config/codex/keybindings.json "$CODEX_HOME"/keybindings.json
 ln -sf "$DOTFILES_DIR"/config/codex/rules/default.rules "$CODEX_HOME"/rules/default.rules
