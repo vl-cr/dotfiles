@@ -1,0 +1,4 @@
+{
+  "description": "Block destructive shell commands before execution.",
+  "hooks": {}
+}

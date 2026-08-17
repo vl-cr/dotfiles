@@ -76,12 +76,31 @@ echo "4. Set up Codex"
 mkdir -p "$CODEX_HOME"
 mkdir -p "$CODEX_HOME"/rules
 if [[ ! -e "$CODEX_HOME"/config.toml && ! -L "$CODEX_HOME"/config.toml ]]; then
-    cp "$DOTFILES_DIR"/config/codex/config.toml "$CODEX_HOME"/config.toml
+    install -m 600 "$DOTFILES_DIR"/config/codex/config.toml "$CODEX_HOME"/config.toml
 fi
 ln -sf "$DOTFILES_DIR"/config/codex/AGENTS.md "$CODEX_HOME"/AGENTS.md
 ln -sfn "$DOTFILES_DIR"/config/codex/instructions "$CODEX_HOME"/instructions
 ln -sf "$DOTFILES_DIR"/config/codex/keybindings.json "$CODEX_HOME"/keybindings.json
 ln -sf "$DOTFILES_DIR"/config/codex/rules/default.rules "$CODEX_HOME"/rules/default.rules
+
+CODEX_PYTHON_BIN=$(command -v python3) || {
+    echo "(!) Python 3.12 or newer is required for Codex hooks" >&2
+    exit 1
+}
+if [[ "$CODEX_PYTHON_BIN" != /* ]]; then
+    echo "(!) Codex hook Python must resolve to an absolute path" >&2
+    exit 1
+fi
+"$CODEX_PYTHON_BIN" -c 'import sys; raise SystemExit(sys.version_info < (3, 12))' || {
+    echo "(!) Python 3.12 or newer is required for Codex hooks" >&2
+    exit 1
+}
+"$CODEX_PYTHON_BIN" "$DOTFILES_DIR"/config/codex/hooks/install_hooks.py \
+    --codex-home "$CODEX_HOME" \
+    --guard-source "$DOTFILES_DIR"/config/codex/hooks/destructive_commands.py \
+    --python "$CODEX_PYTHON_BIN" \
+    --template "$DOTFILES_DIR"/config/codex/hooks.json
+echo "(!) Reload Codex → open /hooks → review and trust the destructive-command guard"
 
 # 5. Misc setups
 echo "5. Misc setups"
