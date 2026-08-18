@@ -25,12 +25,12 @@ gui:
       - "#cdd6f4"
     searchingActiveBorderColor:
       - "#f9e2af"
-  authorColors:
-    "*": "#b4befe"
+    authorColors:
+      "*": "#b4befe"
 git:
-  pagers:
+  diffRenderers:
     - colorArg: always
-      pager: delta --paging=never
+      command: delta --paging=never
 keybinding:
   universal:
     undo: "u"
