@@ -51,3 +51,5 @@
 
 [remote "origin"]
 	prune = true
+[url "git@github-work:deploy-co/"]
+	insteadOf = git@github.com:deploy-co/
