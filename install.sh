@@ -74,9 +74,13 @@ ln -sf "$DOTFILES_DIR"/config/containers/containers.conf "$XDG_CONFIG_HOME"/cont
 # 4. Codex
 echo "4. Set up Codex"
 mkdir -p "$CODEX_HOME"
+mkdir -p "$CODEX_HOME"/browser
 mkdir -p "$CODEX_HOME"/rules
 if [[ ! -e "$CODEX_HOME"/config.toml && ! -L "$CODEX_HOME"/config.toml ]]; then
     install -m 600 "$DOTFILES_DIR"/config/codex/config.toml "$CODEX_HOME"/config.toml
+fi
+if [[ ! -e "$CODEX_HOME"/browser/config.toml && ! -L "$CODEX_HOME"/browser/config.toml ]]; then
+    install -m 600 "$DOTFILES_DIR"/config/codex/browser/config.toml "$CODEX_HOME"/browser/config.toml
 fi
 ln -sf "$DOTFILES_DIR"/config/codex/AGENTS.md "$CODEX_HOME"/AGENTS.md
 ln -sfn "$DOTFILES_DIR"/config/codex/instructions "$CODEX_HOME"/instructions
