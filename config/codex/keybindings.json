@@ -1,5 +1,9 @@
 [
   {
+    "command": "openAvatarOverlay",
+    "key": null
+  },
+  {
     "command": "openCommandMenu",
     "key": "CmdOrCtrl+P"
   },
