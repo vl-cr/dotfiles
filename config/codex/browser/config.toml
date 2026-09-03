@@ -1,0 +1,14 @@
+# Codex may update this baseline when supported browser preferences change.
+# Resolve deltas: read $CODEX_HOME/browser/config.toml and current app defaults →
+# add, update, or remove only global scalar preferences to match effective values →
+# exclude [origins], [downloads], [uploads], [full_cdp], credentials, browsing
+# data, and all other mutable runtime state.
+
+approval_mode = "always_ask"
+history_approval_mode = "always_ask"
+iab_history_approval_mode = "always_ask"
+download_approval_mode = "always_ask"
+upload_approval_mode = "always_ask"
+disable_auto_review = false
+full_cdp_access_enabled = true
+webmcp_enabled = true
