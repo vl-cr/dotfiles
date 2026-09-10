@@ -4,12 +4,12 @@
 
 - Only use British English spelling.
 - Only use Codex's built-in browser for browser-related work unless the user explicitly asks to use Chrome via the extension.
-- If a command expected to work cannot run or fails unexpectedly, flag it prominently in the final response under **⚠️ Command issue ⚠️**. Identify the command, summarise the error or known cause, explain its impact on the task, and state any action the user needs to take. Report it even if a retry or workaround succeeds, making clear whether the underlying issue is resolved or still needs attention. Do not leave it buried in tool output.
+- Report a **Command issue** in the final response only when an unresolved command failure requires action from the user. State the command, cause, impact and action needed. Omit failures resolved by a retry or workaround.
 
 ## Maintaining these instructions
 
 - Keep small, self-contained instructions directly in `AGENTS.md`.
-- Put more complex guidance and multi-line logic explanations in separate Markdown files under `instructions/`, such as `git.md` or `python.md`, then link them under **Topic guides**.
+- Put more complex guidance and multi-line logic explanations in separate Markdown files under `instructions/`, such as `git.md` or `coding.md`, then link them under **Topic guides**.
 
 ## Documentation
 
@@ -34,6 +34,6 @@ The topic guides live under `$CODEX_HOME/instructions` (normally `~/.codex/instr
 
 Before working in any of the following areas, read and follow the relevant guide. Read only the guides needed for the current task.
 
-- [Python](instructions/python.md) — Python version, type hints, and docstrings.
+- [Coding](instructions/coding.md) — Read when writing, reviewing or changing code. Apply the Python section only to Python work.
 - [Git](instructions/git.md) — Git-operation restrictions and commit-message conventions.
 - [Diagrams](instructions/diagrams.md) — Diagram selection, D2 authoring, rendering, visual verification, animation, and presentation export.

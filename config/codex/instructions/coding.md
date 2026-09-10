@@ -1,6 +1,17 @@
-# Python
+# Coding
 
-## Type hints
+## General
+
+Adapted from [these guidelines](https://github.com/multica-ai/andrej-karpathy-skills).
+
+- Resolve uncertainty from the repository where possible; state consequential assumptions and ask only when a consequential choice cannot be inferred safely.
+- Match the surrounding style and leave unrelated code, comments and formatting alone.
+- Remove imports, variables and functions your changes make unused. Leave pre-existing dead code unless its removal is part of the request.
+- Define observable success before implementing. For bug fixes: reproduce the failure where practical → verify the fix against that case. Run relevant existing tests and report the results. If reproduction is impractical, explain the evidence and verification limits.
+
+## Python
+
+### Type hints
 
 Assume Python >=3.12 unless project config says otherwise.
 
@@ -9,7 +20,7 @@ For type hints, prefer built-in generics and PEP 604 unions where available:
 - `list` instead of `typing.List` (same for `dict` and `tuple`)
 - `str | None` instead of `Optional[str]`
 
-## Docstrings
+### Docstrings
 
 Very simple, easy-to-understand functions can use a one-liner docstring (e.g. `"""Raise input 'n' to the power of 2."""`)
 
