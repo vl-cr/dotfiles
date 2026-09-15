@@ -1,2 +1,3 @@
 config/zsh/apis
 *.log
+/.automation-state/
