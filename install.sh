@@ -86,6 +86,7 @@ ln -sf "$DOTFILES_DIR"/config/codex/AGENTS.md "$CODEX_HOME"/AGENTS.md
 ln -sfn "$DOTFILES_DIR"/config/codex/instructions "$CODEX_HOME"/instructions
 ln -sf "$DOTFILES_DIR"/config/codex/keybindings.json "$CODEX_HOME"/keybindings.json
 ln -sf "$DOTFILES_DIR"/config/codex/rules/default.rules "$CODEX_HOME"/rules/default.rules
+ln -sfn "$DOTFILES_DIR"/config/codex/automations "$CODEX_HOME"/automations
 
 CODEX_PYTHON_BIN=$(command -v python3) || {
     echo "(!) Python 3.12 or newer is required for Codex hooks" >&2
