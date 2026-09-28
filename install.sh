@@ -102,6 +102,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     echo "6. Set up Linux"
     source setup/linux.sh
+    if [[ -n "${WSL_DISTRO_NAME:-}" || -n "${WSL_INTEROP:-}" ]]; then
+        bash "$DOTFILES_DIR/setup/wsl.sh"
+    fi
 else
     echo "(!) Unsupported OS"
     exit 1

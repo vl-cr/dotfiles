@@ -30,7 +30,7 @@ For example, when working with GitHub pull requests:
 
 ## Topic guides
 
-The topic guides live under `$CODEX_HOME/instructions` (normally `~/.codex/instructions`), which this dotfiles setup installs as a symlink to `config/codex/instructions`. Resolve the links below from `$CODEX_HOME`, not from the active project checkout.
+The topic guides live under `$CODEX_HOME/instructions` (normally `~/.codex/instructions`), which this dotfiles setup installs from `config/codex/instructions`. Resolve the links below from `$CODEX_HOME`, not from the active project checkout.
 
 Before working in any of the following areas, read and follow the relevant guide. Read only the guides needed for the current task.
 
