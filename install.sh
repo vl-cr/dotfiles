@@ -73,20 +73,21 @@ ln -sf "$DOTFILES_DIR"/config/containers/containers.conf "$XDG_CONFIG_HOME"/cont
 
 # 4. Codex
 echo "4. Set up Codex"
-mkdir -p "$CODEX_HOME"
-mkdir -p "$CODEX_HOME"/browser
-mkdir -p "$CODEX_HOME"/rules
-if [[ ! -e "$CODEX_HOME"/config.toml && ! -L "$CODEX_HOME"/config.toml ]]; then
-    cp "$DOTFILES_DIR"/config/codex/config.toml "$CODEX_HOME"/config.toml
+DOTFILES_CODEX_HOME="$HOME/.codex"
+mkdir -p "$DOTFILES_CODEX_HOME"
+mkdir -p "$DOTFILES_CODEX_HOME"/browser
+mkdir -p "$DOTFILES_CODEX_HOME"/rules
+if [[ ! -e "$DOTFILES_CODEX_HOME"/config.toml && ! -L "$DOTFILES_CODEX_HOME"/config.toml ]]; then
+    install -m 600 "$DOTFILES_DIR"/config/codex/config.toml "$DOTFILES_CODEX_HOME"/config.toml
 fi
-if [[ ! -e "$CODEX_HOME"/browser/config.toml && ! -L "$CODEX_HOME"/browser/config.toml ]]; then
-    install -m 600 "$DOTFILES_DIR"/config/codex/browser/config.toml "$CODEX_HOME"/browser/config.toml
+if [[ ! -e "$DOTFILES_CODEX_HOME"/browser/config.toml && ! -L "$DOTFILES_CODEX_HOME"/browser/config.toml ]]; then
+    install -m 600 "$DOTFILES_DIR"/config/codex/browser/config.toml "$DOTFILES_CODEX_HOME"/browser/config.toml
 fi
-ln -sf "$DOTFILES_DIR"/config/codex/AGENTS.md "$CODEX_HOME"/AGENTS.md
-ln -sfn "$DOTFILES_DIR"/config/codex/instructions "$CODEX_HOME"/instructions
-ln -sf "$DOTFILES_DIR"/config/codex/keybindings.json "$CODEX_HOME"/keybindings.json
-ln -sf "$DOTFILES_DIR"/config/codex/rules/default.rules "$CODEX_HOME"/rules/default.rules
-ln -sfn "$DOTFILES_DIR"/config/codex/automations "$CODEX_HOME"/automations
+ln -sf "$DOTFILES_DIR"/config/codex/AGENTS.md "$DOTFILES_CODEX_HOME"/AGENTS.md
+ln -sfn "$DOTFILES_DIR"/config/codex/instructions "$DOTFILES_CODEX_HOME"/instructions
+ln -sf "$DOTFILES_DIR"/config/codex/keybindings.json "$DOTFILES_CODEX_HOME"/keybindings.json
+ln -sf "$DOTFILES_DIR"/config/codex/rules/default.rules "$DOTFILES_CODEX_HOME"/rules/default.rules
+ln -sfn "$DOTFILES_DIR"/config/codex/automations "$DOTFILES_CODEX_HOME"/automations
 
 # 5. Misc setups
 echo "5. Misc setups"
