@@ -11,10 +11,37 @@ env:
       fi
 
 tasks:
-  atuin-login:
-    desc: Login with Atuin
+  setup-atuin:
+    desc: Log in to Atuin (one-off setup)
     cmds:
       - atuin login -u vl-cr
+
+  setup-firefox:
+    desc: Install and configure Firefox on macOS or Ubuntu Desktop (one-off setup)
+    platforms: [darwin, linux]
+    cmds:
+      - |
+        set -eu
+        case "{{OS}}" in
+          darwin)
+            brew install --cask firefox
+            firefox_config_path="$HOME/Library/Application Support/Firefox"
+            ;;
+          linux)
+            sudo snap install firefox
+            firefox_config_path="$HOME/snap/firefox/common/.mozilla/firefox"
+            ;;
+        esac
+
+        mkdir -p "$firefox_config_path/Profiles/vl-cr/chrome"
+        ln -sf "$DOTFILES_DIR/config/firefox/user.js" "$firefox_config_path/Profiles/vl-cr/user.js"
+        ln -sf "$DOTFILES_DIR/config/firefox/userChrome.css" "$firefox_config_path/Profiles/vl-cr/chrome/userChrome.css"
+        ln -sf "$DOTFILES_DIR/config/firefox/installs.ini" "$firefox_config_path/installs.ini"
+        ln -sf "$DOTFILES_DIR/config/firefox/profiles.ini" "$firefox_config_path/profiles.ini"
+
+        if [ ! -f "$firefox_config_path/Profiles/vl-cr/times.json" ]; then
+          firefox -P
+        fi
 
   brew:
     desc: Install Brew bundle from dotfiles
@@ -29,10 +56,6 @@ tasks:
     cmds:
       - brew bundle install --file=Brewfile-casks
       - brew cleanup
-      - |
-        if [ ! -f "$FIREFOX_CONFIG_PATH/Profiles/vl-cr/times.json" ]; then
-          firefox -P
-        fi
 
   rosetta:
     desc: Install Rosetta on Apple Silicon Macs
@@ -52,10 +75,6 @@ tasks:
     dir: $DOTFILES_DIR/setup
     cmds:
       - bash snaps.sh
-      - |
-        if [ ! -f "$FIREFOX_CONFIG_PATH/Profiles/vl-cr/times.json" ]; then
-          firefox -P
-        fi
 
   skills-install:
     desc: Install skills listed in setup/skills.txt
