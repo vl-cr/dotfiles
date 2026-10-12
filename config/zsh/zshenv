@@ -28,6 +28,10 @@ fi
 # Homebrew commands for interactive and non-interactive shells
 export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH"
 
+# Homebrew keeps python3 in Python 3.14's libexec/bin
+# Include it so non-interactive shells (which don't load aliases) use Homebrew Python instead of system Python
+export PATH="$HOMEBREW_PREFIX/opt/python@3.14/libexec/bin:$PATH"
+
 # Brewfile install without lock (https://github.com/Homebrew/homebrew-bundle?tab=readme-ov-file#versions-and-lockfiles)
 export HOMEBREW_BUNDLE_NO_LOCK=1
 export HOMEBREW_NO_ANALYTICS=1
