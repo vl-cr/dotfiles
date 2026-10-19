@@ -3,13 +3,12 @@
 ## Global
 
 - Only use British English spelling.
-- Only use Codex's built-in browser for browser-related work unless the user explicitly asks to use Chrome via the extension.
-- Report a **Command issue** in the final response only when an unresolved command failure requires action from the user. State the command, cause, impact and action needed. Omit failures resolved by a retry or workaround.
-
-## Maintaining these instructions
-
-- Keep small, self-contained instructions directly in `AGENTS.md`.
-- Put more complex guidance and multi-line logic explanations in separate Markdown files under `instructions/`, such as `git.md` or `coding.md`, then link them under **Topic guides**.
+- Report any given **Command issue** in the final response when an unresolved command failure requires action from the user (me). State the command, cause, impact and action needed. Omit flaky failures resolved by a retry. Don't omit the failures fixed by workarounds unless the user agreed that it's an acceptable workaround.
+- When using **Windows Codex with WSL**, use WSL shell commands to read local files, including SKILL.md. Avoid node_repl for these reads.
+- Only use Codex's **built-in browser** for browser-related work unless the user explicitly asks to use Chrome via the extension.
+- Use "**ASD-STE100** Simplified Technical English (STE)" standard for technical language and documentation.
+- Under no circumstances perform **non-read actions** that affect the state of the external resources (e.g. it's OK to read the contents of the linked Github PR, but don't post PR comments on user's behalf). These non-read actions should only ever be perform if the user explicitely asks for it to be done by Codex.
+- Use the **simplicity-first principle**: only write the code needed for the task, state success critearia and verifiable results that will be used to set the right boundaries.
 
 ## Documentation
 
@@ -19,14 +18,11 @@ For example:
 
 > Prepare the ingredients → Make the batter → Pre-heat the oven → Pour the batter into the cake tin → Bake for 45 minutes
 
-## External actions
+## Maintaining these instructions
 
-Under no circumstances perform non-read actions that affect anything outside the scope of the environment you are working in.
-
-For example, when working with GitHub pull requests:
-
-- It's OK to read pull request contents, comments, and diffs.
-- Don't post comments on the user's behalf, push changes, or take any other action outside the scope of reviewing code and writing code locally.
+- Keep small, self-contained instructions directly in `AGENTS.md`.
+- Put more complex guidance and multi-line logic explanations in separate Markdown files under `instructions/`, such as `git.md` or `coding.md`, then link them under **Topic guides**.
+- If you can't read these separate instructions or if something critical is lacking there, it's very important that you raise it in the output so that I can fix the issue(s).
 
 ## Topic guides
 
