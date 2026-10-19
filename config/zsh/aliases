@@ -47,6 +47,15 @@ alias ld="lazydocker"
 
 # Functions
 
+# Skip macOS "reset" delay for xterm-256color
+function reset {
+  if [[ "$OSTYPE" == darwin* && "$TERM" == xterm-256color && $# -eq 0 ]]; then
+    /usr/bin/reset -I && /usr/bin/tput reset >&2
+  else
+    command reset "$@"
+  fi
+}
+
 # Open Yazi → change the shell to its last directory on exit.
 function y {
   local tmp cwd
