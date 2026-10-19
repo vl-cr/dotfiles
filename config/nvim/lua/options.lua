@@ -1,6 +1,6 @@
 -- Lines
 vim.opt.number = true -- Line start at 1
-vim.opt.relativenumber = true -- Relative numbers
+vim.opt.relativenumber = false -- Relative numbers
 vim.opt.wrap = true -- Lines wrapped
 
 -- Tabs and spaces
