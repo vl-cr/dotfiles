@@ -25,6 +25,10 @@ network_access = true
 [analytics]
 enabled = false
 
+[agents]
+max_depth = 2
+max_threads = 10
+
 [desktop]
 ambient-suggestions-enabled = false
 localeOverride = "en-US"
