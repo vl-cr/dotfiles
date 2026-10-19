@@ -1,6 +1,6 @@
 return {
     "mikavilpas/yazi.nvim",
-    event = "VeryLazy",
+    cmd = "Yazi",
     cond = not vim.g.vscode,
     keys = {
         {

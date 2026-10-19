@@ -5,10 +5,9 @@ return {
     init = function()
         vim.o.timeout = true
         vim.o.timeoutlen = 400
-
-        local wk = require("which-key")
-
-        wk.add({
+    end,
+    opts = {
+        spec = {
             { "<leader>a", group = "Action" },
             { "<leader>c", group = "Clear" },
             { "<leader>d", group = "Diagnostic" },
@@ -16,7 +15,6 @@ return {
             { "<leader>f", group = "Fuzzy" },
             { "<leader>o", group = "Session" },
             { "<leader>y", group = "Yazi" },
-        })
-    end,
-    opts = {},
+        },
+    },
 }

@@ -8,6 +8,7 @@ return {
             auto_session.setup({
                 auto_restore_enabled = true,
                 auto_sesssion_supress_dirs = { "~/", "~/Downloads", "/" },
+                session_lens = { load_on_setup = false },
             })
 
             vim.keymap.set("n", "<leader>ow", ":SessionSearch<CR>", { desc = "Session Manager" })

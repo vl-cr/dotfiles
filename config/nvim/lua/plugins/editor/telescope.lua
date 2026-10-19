@@ -7,6 +7,17 @@ return {
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
     cond = not vim.g.vscode,
+    cmd = "Telescope",
+    keys = {
+        { "<leader>fb", ":Telescope buffers<CR>", desc = "Buffers" },
+        { "<leader>ff", ":Telescope find_files<CR>", desc = "Files" },
+        { "<leader>fg", ":Telescope grep_string<CR>", desc = "Grep (under cursor)" },
+        { "<leader>fm", ":Telescope marks<CR>", desc = "Marks" },
+        { "<leader>fj", ":Telescope jumplist<CR>", desc = "Jumps" },
+        { "<leader>fr", ":Telescope oldfiles<CR>", desc = "Recent" },
+        { "<leader>fs", ":Telescope live_grep<CR>", desc = "String (cwd)" },
+        { "<leader>ft", ":TodoTelescope<CR>", desc = "Todo" },
+    },
     config = function()
         local telescope = require("telescope")
         local actions = require("telescope.actions")
@@ -43,14 +54,6 @@ return {
         })
 
         telescope.load_extension("fzf")
-
-        vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { desc = "Buffers" })
-        vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "Files" })
-        vim.keymap.set("n", "<leader>fg", ":Telescope grep_string<CR>", { desc = "Grep (under cursor)" })
-        vim.keymap.set("n", "<leader>fm", ":Telescope marks<CR>", { desc = "Marks" })
-        vim.keymap.set("n", "<leader>fj", ":Telescope jumplist<CR>", { desc = "Jumps" })
-        vim.keymap.set("n", "<leader>fr", ":Telescope oldfiles<CR>", { desc = "Recent" })
-        vim.keymap.set("n", "<leader>fs", ":Telescope live_grep<CR>", { desc = "String (cwd)" })
-        vim.keymap.set("n", "<leader>ft", ":TodoTelescope<CR>", { desc = "Todo" })
+        telescope.load_extension("session-lens")
     end,
 }
