@@ -36,6 +36,9 @@ export PATH="$HOMEBREW_PREFIX/opt/python@3.14/libexec/bin:$PATH"
 export HOMEBREW_BUNDLE_NO_LOCK=1
 export HOMEBREW_NO_ANALYTICS=1
 
+# Atuin
+export ATUIN_CONFIG_DIR="$XDG_CONFIG_HOME/atuin"
+
 # Delta: enforce truecolor on remote environments
 export COLORTERM="truecolor"
 
