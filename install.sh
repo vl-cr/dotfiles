@@ -21,7 +21,6 @@ fi
 # 1. Brew bundle install
 echo "1. Install brew bundle"
 brew bundle install --file setup/Brewfile
-brew cleanup
 
 # 2. ZSH
 echo "2. Set up zsh"

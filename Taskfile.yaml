@@ -64,14 +64,12 @@ tasks:
     dir: $DOTFILES_DIR/setup
     cmds:
       - brew bundle install
-      - brew cleanup
 
   casks:
     desc: Install Brew casks from dotfiles
     dir: $DOTFILES_DIR/setup
     cmds:
       - brew bundle install --file=Brewfile-casks
-      - brew cleanup
 
   rosetta:
     desc: Install Rosetta on Apple Silicon Macs
