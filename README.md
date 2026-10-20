@@ -31,6 +31,7 @@ bash install.sh
 Run these tasks once per machine, after the bootstrap:
 
 ```bash
+tg setup-ssh-keys # Create personal and work Ed25519 keys without passphrases; keep existing files
 tg setup-atuin    # Log in to the vl-cr Atuin account
 tg setup-firefox  # Install Firefox and link its profile configuration
 ```

@@ -68,6 +68,8 @@ ln -sf "$DOTFILES_DIR"/config/tealdeer "$XDG_CONFIG_HOME"
 ln -sf "$DOTFILES_DIR"/config/yazi "$XDG_CONFIG_HOME"
 ln -sf "$DOTFILES_DIR"/config/zellij "$XDG_CONFIG_HOME"
 
+bash "$DOTFILES_DIR/setup/ssh.sh"
+
 mkdir -p "$XDG_CONFIG_HOME"/containers
 ln -sf "$DOTFILES_DIR"/config/containers/containers.conf "$XDG_CONFIG_HOME"/containers/containers.conf
 

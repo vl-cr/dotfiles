@@ -1,0 +1,14 @@
+IgnoreUnknown UseKeychain
+
+Host github.com
+    AddKeysToAgent yes
+    UseKeychain yes
+    IdentityFile ~/.ssh/ssh_key_personal
+
+Host github-work
+    HostName github.com
+    User git
+    AddKeysToAgent yes
+    UseKeychain yes
+    IdentityFile ~/.ssh/ssh_key_work
+    IdentitiesOnly yes

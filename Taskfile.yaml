@@ -11,6 +11,22 @@ env:
       fi
 
 tasks:
+  setup-ssh-keys:
+    desc: Generate personal and work Ed25519 SSH keys without passphrases
+    cmds:
+      - |
+        set -eu
+        SSH_KEYS_DIR="${SSH_KEYS_DIR:-$HOME/.ssh}"
+        mkdir -p -m 700 "$SSH_KEYS_DIR"
+        for SSH_KEY_NAME in ssh_key_personal ssh_key_work; do
+          SSH_KEY_PATH="$SSH_KEYS_DIR/$SSH_KEY_NAME"
+          if [ -e "$SSH_KEY_PATH" ] || [ -L "$SSH_KEY_PATH" ] || [ -e "$SSH_KEY_PATH.pub" ] || [ -L "$SSH_KEY_PATH.pub" ]; then
+            echo "Keeping existing key files: $SSH_KEY_PATH"
+            continue
+          fi
+          ssh-keygen -t ed25519 -N '' -C "$SSH_KEY_NAME" -f "$SSH_KEY_PATH"
+        done
+
   setup-atuin:
     desc: Log in to Atuin (one-off setup)
     cmds:
