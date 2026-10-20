@@ -4,7 +4,7 @@ use_pager = false
 
 [directories]
 # https://tealdeer-rs.github.io/tealdeer/usage_custom_pages.html
-custom_pages_dir = "$XDG_CONFIG_HOME/tealdeer/custom/"
+custom_pages_dir = "custom/"
 
 [updates]
 auto_update = true
