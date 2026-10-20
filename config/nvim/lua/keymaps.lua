@@ -16,7 +16,7 @@ vim.keymap.set("n", "d", '"_d', { noremap = true, silent = true })
 vim.keymap.set("v", "d", '"_d', { noremap = true, silent = true })
 vim.keymap.set("n", "D", '"_D', { noremap = true, silent = true })
 
--- Make regular scrolls and search scrolls recenter on each command, scroll 4 lines at a time
+-- Scroll five lines; centre search matches.
 vim.keymap.set("n", "<C-d>", "5<C-d>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-u>", "5<C-u>", { noremap = true, silent = true })
 vim.keymap.set("n", "n", "nzz", { noremap = true, silent = true })

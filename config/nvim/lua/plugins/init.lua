@@ -6,8 +6,8 @@ return {
         config = function()
             local auto_session = require("auto-session")
             auto_session.setup({
-                auto_restore_enabled = true,
-                auto_sesssion_supress_dirs = { "~/", "~/Downloads", "/" },
+                auto_restore = true,
+                suppressed_dirs = { "~/", "~/Downloads", "/" },
                 session_lens = { load_on_setup = false },
             })
 

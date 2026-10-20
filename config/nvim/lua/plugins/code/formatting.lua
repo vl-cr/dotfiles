@@ -7,11 +7,9 @@ return {
 
         conform.setup({
             formatters_by_ft = {
-                -- python = { "ruff" },
-                -- sh = { "shfmt" },
-                -- bash = { "shfmt" },
+                sh = { "shfmt" },
+                bash = { "shfmt" },
                 lua = { "stylua" },
-                -- yaml = { "prettier" },
                 javascript = { "prettier" },
                 typescript = { "prettier" },
                 css = { "prettier" },
@@ -20,7 +18,7 @@ return {
                 graphql = { "prettier" },
             },
             format_on_save = {
-                lsp_fallback = true,
+                lsp_format = "fallback",
                 async = false,
                 timeout_ms = 1000,
             },
@@ -28,7 +26,7 @@ return {
 
         vim.keymap.set({ "n", "v" }, "<leader>af", function()
             conform.format({
-                lsp_fallback = true,
+                lsp_format = "fallback",
                 async = false,
                 timeout_ms = 1000,
             })

@@ -27,7 +27,7 @@ brew cleanup
 echo "2. Set up zsh"
 
 if [ ! -e "$DOTFILES_DIR/config/zsh/apis" ]; then
-  cp "$DOTFILES_DIR/config/zsh/apis.example" "$DOTFILES_DIR/config/zsh/apis"
+    cp "$DOTFILES_DIR/config/zsh/apis.example" "$DOTFILES_DIR/config/zsh/apis"
 fi
 
 ln -sf "$DOTFILES_DIR"/config/zsh/zshenv "$HOME"/.zshenv

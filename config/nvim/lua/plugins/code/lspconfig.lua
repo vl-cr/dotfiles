@@ -1,10 +1,9 @@
 return {
     "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
+    lazy = false, -- Mason needs the server configs before it enables installed servers.
     cond = not vim.g.vscode,
     dependencies = {
         { "hrsh7th/cmp-nvim-lsp" }, -- Integrate autocompletions with LSP
-        { "folke/neodev.nvim", opts = {} }, -- Improved LSP for Lua when working on Neovim config
     },
     config = function()
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -15,10 +14,6 @@ return {
             callback = function(ev)
                 -- Buffer local mappings; See `:help vim.lsp.*` for documentation on any of the below functions
                 local opts = { buffer = ev.buf, silent = true }
-
-                -- -- What does this do??
-                -- opts.desc = "References (LSP)"
-                -- vim.keymap.set("n", "gR", ":Telescope lsp_references<CR>", opts) -- show definition, references
 
                 opts.desc = "Go to declaration"
                 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
@@ -48,29 +43,13 @@ return {
                 vim.keymap.set({ "n", "v" }, "<leader>aa", vim.lsp.buf.code_action, opts)
 
                 opts.desc = "Restart LSP"
-                vim.keymap.set("n", "<leader>dr", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+                local restart = vim.fn.exists(":lsp") == 2 and ":lsp restart<CR>" or ":LspRestart<CR>"
+                vim.keymap.set("n", "<leader>dr", restart, opts)
             end,
         })
 
         -- Enable autocompletion (assign to every LSP server config)
         local capabilities = cmp_nvim_lsp.default_capabilities()
-
-        -- Change the Diagnostic symbols in the sign column (gutter)
-        local signs = {
-            Error = " ",
-            Warn = " ",
-            Hint = "󰠠 ",
-            Info = " ",
-        }
-
-        -- for type, icon in pairs(signs) do
-        --     local hl = "DiagnosticSign" .. type
-        --     vim.fn.sign_define(hl, {
-        --         text = icon,
-        --         texthl = hl,
-        --         numhl = "",
-        --     })
-        -- end
 
         vim.lsp.config("*", {
             capabilities = capabilities,

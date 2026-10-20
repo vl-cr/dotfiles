@@ -1,39 +1,17 @@
 local M = {}
 
--- Helper function to get real window count in current tab
-local function get_real_window_count()
-    local wins = vim.api.nvim_tabpage_list_wins(0)
-    return #wins
-end
-
--- Helper function to check if window is at edge
-local function is_at_edge(direction)
-    local cur_win = vim.api.nvim_get_current_win()
-    local cur_pos = vim.api.nvim_win_get_position(cur_win)
-    local win_width = vim.api.nvim_win_get_width(cur_win)
-    local win_height = vim.api.nvim_win_get_height(cur_win)
-    local total_width = vim.o.columns
-    local total_height = vim.o.lines - vim.o.cmdheight
-
-    if direction == "h" then
-        return cur_pos[2] == 0
-    elseif direction == "l" then
-        return cur_pos[2] + win_width >= total_width
-    elseif direction == "k" then
-        return cur_pos[1] == 0
-    elseif direction == "j" then
-        return cur_pos[1] + win_height >= total_height
-    end
-    return false
+local function in_zellij()
+    return vim.env.ZELLIJ ~= nil and vim.env.ZELLIJ ~= ""
 end
 
 -- Helper function to navigate between Neovim windows and Zellij panes
 local function navigate(direction, use_tab)
     local cur_win = vim.api.nvim_get_current_win()
+    local is_float = vim.api.nvim_win_get_config(cur_win).relative ~= ""
     vim.cmd("wincmd " .. direction)
     local new_win = vim.api.nvim_get_current_win()
 
-    if cur_win == new_win and is_at_edge(direction) then
+    if cur_win == new_win and not is_float and in_zellij() then
         local action = use_tab and "move-focus-or-tab" or "move-focus"
         local dir_map = {
             h = "left",
@@ -51,27 +29,29 @@ local function navigate(direction, use_tab)
 end
 
 function M.set_mode(mode)
-    vim.fn.system("zellij action switch-mode " .. mode)
+    if in_zellij() then
+        vim.fn.system("zellij action switch-mode " .. mode)
+    end
 end
 
 function M.setup()
     local keymap_opts = { silent = true }
 
-    -- Create navigation functions with improved edge detection
     local function create_nav_fn(direction, use_tab)
         return function()
             navigate(direction, use_tab)
         end
     end
 
-    -- Set up keymaps with the new navigation functions
     vim.keymap.set("n", "<c-h>", create_nav_fn("h", true), keymap_opts)
     vim.keymap.set("n", "<c-l>", create_nav_fn("l", true), keymap_opts)
     vim.keymap.set("n", "<c-j>", create_nav_fn("j", false), keymap_opts)
     vim.keymap.set("n", "<c-k>", create_nav_fn("k", false), keymap_opts)
 
-    -- Create autocommands with improved mode handling
     local group = vim.api.nvim_create_augroup("ZellijIntegration", { clear = true })
+    if not in_zellij() then
+        return
+    end
 
     vim.api.nvim_create_autocmd("VimEnter", {
         group = group,
@@ -95,17 +75,6 @@ function M.setup()
             vim.defer_fn(function()
                 M.set_mode("locked")
             end, 50)
-        end,
-    })
-
-    -- Add WinEnter autocmd to handle treesitter context
-    vim.api.nvim_create_autocmd("WinEnter", {
-        group = group,
-        callback = function()
-            vim.defer_fn(function()
-                -- Ensure window calculations are updated after treesitter context
-                vim.cmd("redraw")
-            end, 10)
         end,
     })
 end
